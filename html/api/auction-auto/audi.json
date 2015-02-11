@@ -1,0 +1,69 @@
+[
+	{
+		"audi":[
+			{
+				"id": "1",
+				"img": "http://www.avtorinok.ru/news/pics/Audi_A4_pic_24667.jpg",
+				"model": "A4",
+				"modification": "",
+				"lot":"A888C",
+				"year": "2013",		
+				"engine_type": "petrol",
+				"volume": "3.3",
+				"mileage": "210000",
+				"transmission": "automatic",
+				"price": "3650",
+				"status": "available",
+				"bid":[
+					{
+						"username": "user1",
+						"rate": "4000",
+						"time_left": "11"
+					}
+				]
+			},
+			{
+				"id": "2",
+				"img": "../images/audi/1.jpg",
+				"model": "A5",
+				"modification": "",
+				"lot":"A578B",
+				"year": "2013",		
+				"engine_type": "petrol",
+				"volume": "3.3",
+				"mileage": "1000",
+				"transmission": "automatic",
+				"price": "4650",
+				"status": "available",
+				"bid":[
+					{
+						"username": "user2",
+						"rate": "5000",
+						"time_left": "3"
+					}
+				]
+			},
+			{
+				"id": "3",
+				"img": "../../images/1.jpg",
+				"model": "A6",
+				"modification": "",
+				"lot":"A234D",
+				"year": "2013",		
+				"engine_type": "petrol",
+				"volume": "3.3",
+				"mileage": "210000",
+				"transmission": "automatic",
+				"price": "3330",
+				"status": "won",
+				"bid":[
+					{
+						"username": "user1",
+						"rate": "3400",
+						"time_left": "0"
+					}
+				]
+			}
+		]
+	}
+]

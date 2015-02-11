@@ -1,0 +1,38 @@
+[
+	{
+		"id": "1",
+		"article": "33323S3",
+		"img": "http://www.avtorinok.ru/news/pics/Audi_A4_pic_24667.jpg",
+		"brand": "audi",
+		"model": "A4",
+		"modification":"",
+		"title": "wheel",
+		"size": "R16",
+		"price":"5",
+		"status": "available"
+	},
+	{
+		"id": "2",
+		"article": "3333S3",
+		"img": "http://www.avtorinok.ru/news/pics/Audi_A4_pic_24667.jpg",
+		"brand": "audi",
+		"model": "A5",
+		"modification":"",
+		"title": "wheel",
+		"size": "R16",
+		"price":"5",
+		"status": "sold"
+	},
+	{
+		"id": "3",
+		"article": "3333S3",
+		"img": "http://www.avtorinok.ru/news/pics/Audi_A4_pic_24667.jpg",
+		"brand": "audi",
+		"model": "A4",
+		"modification":"",	
+		"title": "wheel",
+		"size": "R17",
+		"price":"90",
+		"status": "available"
+	},
+]

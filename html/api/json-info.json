@@ -1,0 +1,20 @@
+[
+	{
+		"all-json-files": [
+                  "/api/auction-auto/all-autos.json",
+                  "/api/auction-auto/all-models.json",
+                  "/api/auction-auto/audi.json",
+                  "/api/auction-auto/bmw.json",
+
+                  "/api/bids/all-bids.json",
+                  "/api/bids/winners.json",
+
+                  "/api/catalog-car-parts/audi/body-parts.json",
+                  "/api/catalog-car-parts/audi/engines.json",
+                  "/api/catalog-car-parts/audi/wheels-tires.json",
+                  "/api/catalog-car-parts/bmw/body-parts.json",
+                  "/api/catalog-car-parts/bmw/engines.json",
+                  "/api/catalog-car-parts/bmw/wheels-tires.json"
+            ]
+	}
+]
