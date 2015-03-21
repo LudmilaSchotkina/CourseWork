@@ -1,0 +1,128 @@
+[
+	{
+		"audi":[
+			{
+				"id": "1",
+				"img": "http://www.avtorinok.ru/news/pics/Audi_A4_pic_24667.jpg",
+				"model": "A4",
+				"modification": "",
+				"lot":"A888C",
+				"year": "2013",		
+				"engine_type": "petrol",
+				"volume": "3.3",
+				"mileage": "210000",
+				"transmission": "automatic",
+				"price": "3650",
+				"status": "available",
+				"bid":[
+					{
+						"username": "user1",
+						"rate": "4000",
+						"time_left": "11"
+					}
+				]
+			},
+			{
+				"id": "2",
+				"img": "../images/audi/1.jpg",
+				"model": "A5",
+				"modification": "",
+				"lot":"A578B",
+				"year": "2013",		
+				"engine_type": "petrol",
+				"volume": "3.3",
+				"mileage": "1000",
+				"transmission": "automatic",
+				"price": "4650",
+				"status": "available",
+				"bid":[
+					{
+						"username": "user2",
+						"rate": "5000",
+						"time_left": "3"
+					}
+				]
+			},
+			{
+				"id": "3",
+				"img": "../../images/1.jpg",
+				"model": "A6",
+				"modification": "",
+				"lot":"A234D",
+				"year": "2013",		
+				"engine_type": "petrol",
+				"volume": "3.3",
+				"mileage": "210000",
+				"transmission": "automatic",
+				"price": "3330",
+				"status": "won",
+				"bid":[
+					{
+						"username": "user1",
+						"rate": "3400",
+						"time_left": "0"
+					}
+				]
+			}
+		],
+		"bmw":[
+			{
+				"id": "11",
+				"img": "http://www.avtorinok.ru/news/pics/Audi_A4_pic_24667.jpg",
+				"model": "4",
+				"modification": "",
+				"lot":"B234N",
+				"year": "2013",		
+				"engine_type": "petrol",
+				"volume": "3.3",
+				"mileage": "210000",
+				"transmission": "automatic",
+				"price": "6936",
+				"status": "won",
+				"bid":[				
+					{
+						"username": "user1",
+						"rate": "7000",
+						"time_left": "0"
+					}
+				]
+			},
+			{
+				"id": "12",
+				"img": "../images/audi/1.jpg",
+				"model": "1",
+				"modification": "",
+				"lot":"B422X",
+				"year": "2013",		
+				"engine_type": "petrol",
+				"volume": "3.3",
+				"mileage": "210000",
+				"transmission": "automatic",
+				"price": "8000",
+				"status": "available",
+				"bid":[
+					{
+						"username": "user1",
+						"rate": "9000",
+						"time_left": "8"
+					}
+				]
+			},
+			{
+				"id": "13",
+				"img": "../../images/1.jpg",
+				"model": "3",
+				"modification": "",
+				"lot":"B231T",
+				"year": "2013",		
+				"engine_type": "petrol",
+				"volume": "3.3",
+				"mileage": "210000",
+				"transmission": "automatic",
+				"price": "2333",
+				"status": "available",
+				"bid":[]
+			}
+		]
+	}
+]
