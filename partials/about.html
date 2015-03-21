@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<!--
+Copyright 2010 The Closure Library Authors. All Rights Reserved.
+
+Use of this source code is governed by the Apache License, Version 2.0.
+See the COPYING file for details.
+-->
+<head>
+  <title>goog.ui.Zippy</title>
+  <meta charset="utf-8">
+  <script src="../closure-library/closure/goog/base.js"></script>
+  <script>
+    goog.require('goog.ui.Zippy');
+  </script>
+  <link rel="stylesheet" href="css/demo.css">
+  <style>
+    h2 {
+     color:green;
+    }
+    p {
+   
+      color: blue;
+    }
+  </style>
+</head>
+<body>
+
+<a ng-href="#/login">login</a>
+  <h2 id="header1">Zippy 1</h2>
+  <p id="content1">
+    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Cras et nisi id
+    lorem tempor semper. Suspendisse ante. Integer ligula urna, venenatis quis,
+    placerat vitae, commodo quis, sapien. Quisque nec lectus. Sed non dolor. Sed
+    congue, nisi in pharetra consequat, odio diam pulvinar arcu, in laoreet elit
+    risus id ipsum. Class aptent taciti sociosqu ad litora torquent per conubia
+    nostra, per inceptos hymenaeos. Praesent tellus enim, imperdiet a, sagittis
+    id, pulvinar vel, tortor. Integer nulla. Sed nulla augue, lacinia id,
+    vulputate eu, rhoncus non, ante. Integer lobortis eros vitae quam. Phasellus
+    sagittis, ipsum sollicitudin bibendum laoreet, arcu erat luctus lacus, vel
+    pharetra felis metus tincidunt diam. Cras ac augue in enim ultricies aliquam.
+  </p>
+
+  
+  <script>
+    
+    function logEvent(e) {
+      alert("!");
+    }
+
+    var z1 = new goog.ui.Zippy('header1', 'content1',false);
+    goog.events.listen(z1, EVENTS, logEvent);
+     
+  </script>
+</body>
+</html>

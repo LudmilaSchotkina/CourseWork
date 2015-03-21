@@ -1,0 +1,593 @@
+body style {
+  -webkit-user-select: auto !important;
+}
+header {
+  height: 130px;
+  width: 880px;
+  margin: 0px auto;
+  padding: 10px;
+  background: url("/images/slvkoby1.jpg");
+}
+.main-logo {
+  float: left;
+}
+.main-logo > img {
+  width: 260px;
+}
+.main-logo > span {
+  
+  margin: 10px auto;
+  color: #FFFFFF;
+  font-size: 24px;
+  font-weight: bold;
+  text-shadow: 1px 1px 1px #000000;
+}
+.login {
+  margin: 0px auto;
+  margin-right: 50px;
+  padding: 5px 5px;
+  width: 210px;
+  background: rgba(189, 189, 189, 0.69);
+}
+
+#menuBarProgrammatic {
+  width: 900px;
+  height: 50px;
+  margin: 0px auto;
+  //border: 1px solid #222;
+  background-color: #33a1ba;
+  //background-image: linear-gradient(#33a1ba, #39b1cc);
+ // background-image: url("../images/menu.png");
+ background-color: rgb(0,73,105);
+  //border-radius: 6px;
+  //box-shadow: 0 1px 1px #777;
+}
+#menuBarProgrammatic li:hover > a {
+  color: #fafafa;
+}
+.menu-item {
+  cursor: pointer;
+  float: left;
+  margin-top: 6px;
+  padding: 0px 15px;
+  padding-top: 11px;
+  height: 23px;
+  font-family: 'Open Sans', Helvetica, sans-serif;
+  text-shadow: 0 1px 0 #000;
+  //border-right: 1px solid rgba(80, 80, 80, 0.12);
+  border-right: 1px solid rgba(16, 22, 45, 0.37);
+  text-decoration: none;
+  //font-size: 13px;
+  font-weight: 700;
+  color: #d3eced;
+  text-transform: uppercase;
+  //letter-spacing: 1px;
+}
+
+.menu-item:hover {
+   // color: #fafafa;
+   //background-color: rgb(0,160,207);
+   //height: 10px;
+}
+.menu-item > a {
+    color: rgb(230, 230, 230);
+    text-decoration: none;
+}
+.menu-item > a:hover {
+    //color: rgb(0,160,207);
+    text-decoration: none;
+}
+/* Demo styles for goog.ui.Container */
+.goog-menubar {
+  
+}
+.goog-menubar-horizontal{
+
+}
+.goog-container {
+  position: relative;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  background-color: #eee;
+  outline: none !important;
+  zoom: 1; /* The container element must have layout on IE. */
+  -webkit-touch-callout: text;
+  -webkit-user-select: text;
+  -khtml-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+  border: none;
+}
+
+
+.goog-container-horizontal {
+  border-bottom: 1px solid #d5d5d5;
+  background: #fafafa url(../images/toolbar-bg.png) repeat-x bottom left;
+  -webkit-touch-callout: text;
+  -webkit-user-select: text;
+  -khtml-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+  border: none;
+
+}
+.goog-control {
+  -webkit-touch-callout: text;
+  -webkit-user-select: text;
+  -khtml-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+  border: none;
+  float: left;
+  width: auto;
+  display: inline-block;
+
+}
+    .goog-control-hover {
+       -webkit-touch-callout: text;
+    -webkit-user-select: text;
+    -khtml-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    user-select: text;
+        border: none;
+
+    }
+    .goog-control-focused {
+       -webkit-touch-callout: text;
+    -webkit-user-select: text;
+    -khtml-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    user-select: text;
+        border: none;
+        outline: none;
+    }
+    .goog-control-active {
+        border: none;
+       -webkit-touch-callout: text;
+    -webkit-user-select: text;
+    -khtml-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    user-select: text;
+    }
+
+.goog-container-vertical {
+   -webkit-touch-callout: text;
+  -webkit-user-select: text;
+  -khtml-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+  border: none;
+}
+
+
+body{
+    background-image: url("../images/triangle.jpg");
+    //background-color: #bdc3c7;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+
+      -webkit-touch-callout: text;
+    -webkit-user-select: text;
+    -khtml-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    user-select: text;
+
+    outline: none;
+}
+
+footer{
+   margin-bottom: -100px;
+   height: 100px;
+}
+a {
+    color: #0c65a5;
+    text-decoration: none;
+}
+a:hover {
+    color: #44a1c7;
+    text-decoration:underline;
+}
+.menu-element {
+    color: #0c65a5;
+    text-decoration: none;
+}
+.menu-element:hover {
+    color: #44a1c7;
+    text-decoration: none;
+}
+table {
+  border-spacing: 0;
+  border-collapse: collapse;
+
+
+}
+.table {
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 20px;
+
+
+}
+.table > thead > tr > th,
+.table > tbody > tr > th,
+.table > tfoot > tr > th,
+.table > thead > tr > td,
+.table > tbody > tr > td,
+.table > tfoot > tr > td {
+  padding: 8px;
+  line-height: 1.42857143;
+  text-align:center; 
+  vertical-align:middle;
+  border-top: 1px solid #ddd;
+}
+.table > thead > tr > th {
+  text-align:center; 
+  vertical-align:middle;
+  border-bottom: 2px solid #ddd;
+}
+.table-row {
+    padding: 0px 40px;
+}
+
+.button-more {
+  text-align:center; 
+  vertical-align:middle;
+  padding: 5px 10px;
+  margin: 5px 10px;
+}
+  .modal-dialog-bg {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    background-color: #FFF;
+  }
+
+  .modal-dialog {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 300px;
+    background-color: #AAF;
+    border: 2px solid #99c0ff;
+  }
+
+  .modal-dialog-title {
+    position:relative;
+    background: #C3D9FF;
+    padding: 4px;
+    font: bold 11px verdana;
+    cursor: default;
+  }
+
+  .modal-dialog-content {
+    background: #E8EEF7;
+    padding: 12px 18px 12px 18px;  font: normal 12px verdana;
+    font: normal 12px verdana;
+  }
+
+  .modal-dialog-userInput {
+    font: normal 12px verdana;
+    width: 90%;
+  }
+
+  .modal-dialog-buttons {
+    background: #E8EEF7;
+    padding: 4px;
+    font: normal 12px verdana;
+    text-align: right;
+  }
+
+  .modal-dialog-buttons button {
+    margin: 5px;
+  }
+
+
+
+
+
+
+.table-image {
+    height: 32px; 
+}
+.popup {
+    background-color:#e0ecff;
+    color:black;
+    //visibility:hidden;
+    width:400px;
+    position: absolute;
+    margin: 50px auto;
+    padding: 10px 10px;
+    //opacity: 0.4;
+    border: 2px solid gray;
+    z-index: 1;
+}
+
+.info-block {
+    border: 1px solid gray;
+    width: 200px;
+    margin: 10px 10px;
+    padding:5px 5px;
+}
+.info-bet {
+    border: 2px solid gray;
+    width: 200px;
+    margin: 10px 10px;
+    padding:15px 15px;
+}
+.info-bet-input {
+  //height: 10px;
+  padding: 2px 5px;
+  margin: 1px 10px;
+  font-size: 8pt;
+}
+.info-image {
+    width:300px;
+}
+.info-div-pic {
+  border: none;
+  background-color: gray;
+  width: auto;
+  padding: 10px;
+  margin: 5px auto;
+}
+.info-bet {
+    float: left;
+    //width: 180px;
+    margin: 10px auto;
+}
+.info-lastbet {
+    float: left;
+    //width: 180px;
+    margin: 10px 5px;
+    border: 2px solid gray;
+}
+.elem{
+	width: 500px;
+	height: 220px;
+}
+
+.content{
+	width: 900px;
+	margin: 0 auto;
+    min-height:100%
+}
+
+.container{
+    float: left;
+    width: 900px;
+    margin: -4px auto;
+    background-image: url("../images/bg-light.png");
+    min-height:100%
+}
+
+#carousel {
+    width: 100%;
+    height: 250px;
+}
+.carousel {
+    width: 100%;
+    height: 250px;
+}
+
+.left-block {
+  float: left;
+  
+  width: 240px;
+  padding-left: 10px;
+  //margin: 20px 20px;
+  //padding: 10px 5px;
+}
+.right-block {
+  float: left;
+  margin-left: 50px;
+  padding-right: 10px;
+  width: 590px;
+}
+
+.left-block-row {
+  display: inline-block;
+  background: white;
+  //border: 2px solid black;
+  //border-radius: 4px;
+  //width: 250px;
+  margin: 10px 5px;
+  padding: 10px 10px;
+}
+.right-block-row {
+  display: inline-block;
+  background: white;
+  //width: 540px;
+  margin: 10px 5px;
+  padding: 10px 10px;
+}
+form{
+    width:300px;
+    margin:0px 15px;
+}
+.search {
+    margin:3px; 
+    //background: url('../images/search.png') no-repeat 32px 32px;
+}
+
+
+
+.modal-dialog {
+  background: #FFF;
+  //border: 1px solid #3a5774;
+  color: #000;
+  //padding: 4px;
+  width: 600px;
+  
+  margin: 0 auto;
+  position: absolute;
+  z-index: 1;
+  padding-bottom: 10px;
+}
+/*
+.modal-dialog a,
+.modal-dialog a:link,
+.modal-dialog a:visited  {
+  color: #06c;
+  cursor: pointer;
+}
+*/
+.modal-dialog-bg {
+  background: #666;
+  left: 0;
+  position: absolute;
+  top: 0;
+}
+
+.modal-dialog-title {
+  background: #e0edfe;
+  color: #000;
+  //cursor: pointer;
+  font-size: 14pt;
+  //height: 50px;
+  font-weight: bold;
+
+  /* Add padding on the right to ensure the close button has room. */
+  padding: 8px 31px 8px 8px;
+
+  //position: relative;
+  //_zoom: 1; /* Ensures proper width in IE6 RTL. */
+}
+
+.modal-dialog-title-close {
+  /* Client apps may override the URL at which they serve the sprite. */
+  background: gray url(/images/search.png) no-repeat -528px 0;
+  //#e0edfe
+  cursor: default;
+  height: 15px;
+  position: absolute;
+  right: 10px;
+  top: 8px;
+  width: 15px;
+  vertical-align: middle;
+}
+
+.modal-dialog-buttons,
+.modal-dialog-content {
+  background-color: #fff;
+  padding: 8px;
+}
+
+.goog-buttonset-default {
+  font-weight: bold;
+}
+
+
+
+
+
+
+
+
+
+
+
+.car-parts-menu{
+    float: left;
+    padding: 5px 15px;
+    border: 1px solid gray;
+    border-radius: 4px;
+    background-color: #B5BBF3;
+    margin-right: 5px;
+}
+
+
+/* page catalog.html */
+.catalog {
+  width: 800px;
+  margin: 0px auto;
+  margin-bottom: -20px;
+}
+.all-cars-for-parts {
+  width: 600px;
+  height: 100px;
+  //color: red;
+  margin: 0 auto;
+  float: left;
+  border: green 2px solid;
+}
+.car-list{
+  //width: 100%;
+
+}
+.catalog-header {
+  background-color: rgb(0,111,161);
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+  color: white;
+  padding:10px 50px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  color: #FFFFFF;
+  font-size: 16px;
+  font-weight: bold;
+  text-shadow: 1px 1px 1px #000000;
+}
+
+.car-logo {
+  float: left;
+  width: 60px;
+  height: 30px;
+  margin: -8px 0px;
+  margin-left: 10px;
+}
+.div-brand-models{
+  //width: 780px;
+  border: 1px solid red;
+  cursor: pointer;
+  margin: 2px 0px;
+  padding: 10px 0px;
+}
+
+.div-brand {
+  //width: 780px;
+  border: 1px solid gray;
+  border-radius: 3px;
+  cursor: pointer;
+  margin: 2px 0px;
+  padding: 10px 0px;
+}
+
+.zippy-models {
+  //width: 780px;
+  border: 1px solid gray;
+  border-radius: 3px;
+  cursor: default;
+  margin: 0px 0px;
+  padding: 10px 0px;
+}
+.model-zippy{
+    padding: 3px 5px;
+    margin-left: 20px;
+}
+
+.nav-menu {
+  padding: 10px 0px;
+  margin: 0px 0px;
+}
+
+#owl-demo .item img{
+    display: block;
+    width: 100%;
+    height: auto;
+
+}
+
+.car-parts {
+  background: #fff;
+  margin: 0px 140px;
+padding: 10px 0px;
+}

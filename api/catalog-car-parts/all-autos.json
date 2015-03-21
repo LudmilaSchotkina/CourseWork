@@ -1,0 +1,51 @@
+[
+	{
+		"id": "1",
+		"logo": "/images/logo/car_logo_PNG1640.png",
+		"car_brand": "Audi",
+		"amount": "3",
+		"models":["A4", "A5", "A6"]
+	},
+	{
+		"id": "2",
+		"logo": "/images/logo/car_logo_PNG1641.png",
+		"car_brand": "BMW",
+		"amount": "3",
+		"models":[ "1", "3", "4" ]
+	},
+	{
+		"id": "3",
+		"logo": "/images/logo/car_logo_PNG1644.png",
+		"car_brand": "Chevrolet",
+		"amount": "0",
+		"models":[]
+	},
+	{
+		"id": "4",
+		"logo": "/images/logo/car_logo_PNG1636.png",
+		"car_brand": "Citroen",
+		"amount": "0",
+		"models":[]
+	},
+	{
+		"id": "5",
+		"logo": "/images/logo/car_logo_PNG1655.png",
+		"car_brand": "Mercedes",
+		"amount": "0",
+		"models":[]
+	},
+	{
+		"id": "6",
+		"logo": "/images/logo/car_logo_PNG1663.png",
+		"car_brand": "Porsche",
+		"amount": "0",
+		"models":[]
+	},
+	{
+		"id": "7",
+		"logo": "/images/logo/car_logo_PNG1668.png",
+		"car_brand": "Volvo",
+		"amount": "0",
+		"models":[]
+	}				
+]
