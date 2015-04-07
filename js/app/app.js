@@ -54,7 +54,7 @@ auctionApp.config(['$routeProvider', '$locationProvider',
         templateUrl: 'partials/catalog/parts-list.html',
         controller: 'PartTypeCarBrandCtrl'
       }).
-      when('/catalog/:partTypeId/:carBrandId/:model', { //ex: /catalog/engine/audi/a5 - all engines for audi model a5
+      when('/catalog/:partTypeId/:carBrandId/:modelId', { //ex: /catalog/engine/audi/a5 - all engines for audi model a5
         templateUrl: 'partials/catalog/parts-list.html',
         controller: 'PartTypeModelCtrl'
       }).
@@ -76,6 +76,11 @@ auctionApp.config(['$routeProvider', '$locationProvider',
       }).
       when('/registration', {
         templateUrl: '/partials/login.html',
+        controller: 'RegCtrl'
+      }).
+
+      when('/about', {
+        templateUrl: '/partials/about.html',
         controller: 'RegCtrl'
       }).
       

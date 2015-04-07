@@ -3,7 +3,9 @@ var auctionAppCtrls = angular.module('auctionAppCtrls', []);
 
 auctionAppCtrls.controller('MainPageCtrl', ['$scope', '$http',
   function ($scope, $http) {
-    autoService.common.buildCarousel(goog.dom.getElement('carousel'));
+    autoService.common.buildCarousel();
+    autoService.bids.buildBidsWinners('/api/bids/winners.json');
+    autoService.bids.buildHotBids('/api/bids/all-bids.json');
 }]);
 
 
@@ -37,10 +39,9 @@ auctionAppCtrls.controller('BidsCtrl', ['$scope', 'Bids',
 auctionAppCtrls.controller('CatalogCtrl', ['$scope', 'Catalog',
   function ($scope, Catalog) {
     Catalog.query(function(data) {
-      $scope.data = data;
+      //$scope.data = data;
       autoService.catalog.listOfModelsForParts("/api/catalog-car-parts/all-autos.json");
       //autoService.catalog.listOfCarsForParts($scope.data);
-
       //autoService.auction.buildTableLots('/api/auction-auto/'+ $routeParams.carBrandId +'.json',$routeParams.carBrandId);
     });
   }
@@ -53,11 +54,18 @@ auctionAppCtrls.controller('ModelCatalogCtrl', ['$scope','$routeParams', 'AllPar
     });
   }
 ]);
-auctionAppCtrls.controller('PartTypeCtrl', ['$scope','$routeParams', 'PartType',
-  function ($scope, $routeParams, PartType) {
-    PartType.query({PartTypeId: $routeParams.PartTypeId}, function(data) {
-      autoService.catalog.listOfModelsForParts("/api/catalog-car-parts/all-autos.json");
-      //autoService.auction.buildTableLots('/api/auction-auto/'+ $routeParams.carBrandId +'.json',$routeParams.carBrandId);
+/* tmp */
+auctionAppCtrls.controller('PartTypeCtrl', ['$scope','$routeParams', 'Catalog', 'PartType', 
+  function ($scope, $routeParams, Catalog, PartType) {
+    var partType = $routeParams.partTypeId;
+    Catalog.query(function(data) {
+      //autoService.catalog.listOfPartsTypeCars("/api/catalog-car-parts/all-autos.json");
+      autoService.catalog.buildPartsTypeCars(data,partType);
+    });
+    PartType.query({partTypeId: $routeParams.partTypeId}, function(data) {
+      //autoService.catalog.listOfPartsTypeCars("/api/catalog-car-parts/all-autos.json");
+      autoService.catalog.buildPartsTypeAll(data, $routeParams.partTypeId);
+      //autoService.catalog.listOfPartsByType("/api/catalog-car-parts/" + $routeParams.partTypeId + ".json");
     });
   }
 ]);
@@ -65,8 +73,31 @@ auctionAppCtrls.controller('PartTypeCarBrandCtrl', ['$scope','$routeParams', 'Pa
   function ($scope, $routeParams, PartTypeCarBrand) {
     PartTypeCarBrand.query({partTypeId: $routeParams.partTypeId, carBrandId: $routeParams.carBrandId}, 
       function(data) {
-        autoService.common.buildTableCars("/api/auction-auto/all-autos.json");
-        autoService.auction.buildTableLots('/api/auction-auto/'+ $routeParams.carBrandId +'.json',$routeParams.carBrandId);
+        autoService.catalog.listOfPartsTypeCars("/api/catalog-car-parts/all-autos.json");
+        autoService.catalog.listOfPartsByType(
+          "/api/catalog-car-parts/" + 
+          $routeParams.partTypeId + "/" +
+          $routeParams.carBrandId + "/"  + 
+          $routeParams.partTypeId + ".json");
+      });
+    }
+]);
+auctionAppCtrls.controller('PartTypeModelCtrl', ['$scope','$routeParams', 'PartTypeModelCarBrand',
+  function ($scope, $routeParams, PartTypeModelCarBrand) {
+    PartTypeModelCarBrand.query({
+      partTypeId: $routeParams.partTypeId, 
+      carBrandId: $routeParams.carBrandId, 
+      modelId: $routeParams.modelId
+    }, 
+      function(data) {
+        alert($routeParams.carBrandId);
+        alert($routeParams.modelId);
+        autoService.catalog.listOfPartsTypeCars("/api/catalog-car-parts/all-autos.json");
+        autoService.catalog.listOfPartsByType(
+          "/api/catalog-car-parts/" + 
+          $routeParams.partTypeId + "/" +
+          $routeParams.carBrandId + "/" +
+          $routeParams.modelId + ".json");
       });
     }
 ]);

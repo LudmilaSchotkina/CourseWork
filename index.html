@@ -6,14 +6,14 @@
     <title>Auction main page</title>
     <link href="css/common.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
-    <!--<link href="css/owl.carousel.css" rel="stylesheet">-->
+    <link href="css/form.css" rel="stylesheet">
+    <link href="css/carousel.css" rel="stylesheet">
     <link rel="shortcut icon" href="/images/main-logo.png" type="image/x-icon">
     <!--http://icons.iconarchive.com/icons/icons-land/points-of-interest/32/Car-Repair-Blue-2-icon.png-->
     <script src="js/lib/angular.js"></script>
     <script src="js/lib/angular-route.js"></script>
     <script src="js/lib/angular-resource.js"></script>
-    <script src="js/lib/owl.carousel.js"></script>
-    <script src="js/lib/jquery-1.9.1.min.js"></script>
+    <script src="js/lib/view.js"></script>
     
 
     <script src="js/app/app.js"></script>
@@ -25,31 +25,29 @@
     <header>
       <div class="main-logo">
         <img src="/images/autoservice.png">
-        <!--<span>Auto Service</span>-->
       </div>
-      <div class="login">
-        <form method="post" action="index.html">
-        <p><input type="text" name="login" value="" placeholder="Login or Email"></p>
-        <p><input type="password" name="password" value="" placeholder="Password"></p>
-        <p class="submit">
-          <input type="submit" name="commit" value="Enter">
-            <label>
-              <input type="checkbox" name="remember_me" id="remember_me">
-              Remember me
-            </label>
-        </p>
+    <!--
+    <form class="form-container">
+      <div class="form-title"><h2>Sign in</h2></div>
+      <div class="form-title">Login or e-mail</div>
+      <input class="form-field" type="text" name="firstname" /><br />
+      <div class="form-title">Password</div>
+      <input class="form-field" type="text" name="email" /><br />
+      <div class="submit-container">
+      <input class="submit-button" type="submit" value="Submit" />
+      </div>
+    </form>
+    -->
 
-      </form>
-      </div>
     </header>
-    <nav id="menuBarProgrammatic"></nav>
+    <nav  class="menu-bar" id="menu-bar"></nav>
     <div ng-view></div>
-
-  <!--
+ 
+ <!--
       <footer>
           <p>&copy; 2014-2015 | All rights reserved</p>
       </footer>
-    -->
+  -->
   <!--
   <script type="text/javascript" src="http://localhost:48626/takana.js"></script>
   <script type="text/javascript">
@@ -59,6 +57,7 @@
   -->
 
   <script src="closure/closure-library/closure/goog/base.js"></script>
+  <!--<script src="closure/closure-library/closure/czk/base.js"></script>-->
   <script src="js/list-deps.js"></script>
   <script src="js/list-compiled.js"></script>
   <script>
@@ -68,7 +67,7 @@
     goog.require('autoService.catalog');
   </script>
   <script>
-    autoService.common.buildMenu(goog.dom.getElement('menuBarProgrammatic'));
+    autoService.common.buildMenu();
   </script>
 
   </body>

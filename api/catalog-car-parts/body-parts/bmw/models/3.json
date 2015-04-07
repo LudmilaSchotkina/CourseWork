@@ -1,0 +1,29 @@
+[
+	{
+		"id": "1",
+		"img": "http://www.avtorinok.ru/news/pics/Audi_A4_pic_24667.jpg",
+		"brand": "audi",
+		"model": "A5",
+		"modification":"",
+		"year": "2000",
+		"title": "roof",		
+		"price":"10",
+		"status": "sold"
+	},
+	{
+		"id": "2",
+		"article": "1111R3",
+		"img": "http://www.avtorinok.ru/news/pics/Audi_A4_pic_24667.jpg",
+		"brand": "audi",
+		"model": "A5",
+		"modification":"",
+		"year": "2000",		
+		"engine_type": "petrol",
+		"volume": "1.8",
+		"mileage": "210000",
+		"number": "AWT 023423",
+		"power": "100",
+		"price":"1000",
+		"status": "sold"
+	}
+]

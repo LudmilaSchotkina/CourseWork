@@ -1,0 +1,24 @@
+[
+	{
+		"id": "1",
+		"img": "http://www.avtorinok.ru/news/pics/Audi_A4_pic_24667.jpg",
+		"brand": "audi",
+		"model": "A4",
+		"modification":"",
+		"year": "2005",
+		"title": "door",		
+		"price":"67",
+		"status": "available"
+	},
+	{
+		"id": "2",
+		"img": "http://www.avtorinok.ru/news/pics/Audi_A4_pic_24667.jpg",
+		"brand": "audi",
+		"model": "A4",
+		"modification":"",
+		"year": "2013",
+		"title": "roof",		
+		"price":"80",
+		"status": "available"
+	}
+]

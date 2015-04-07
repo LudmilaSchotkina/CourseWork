@@ -2,35 +2,18 @@ goog.provide('autoService.common');
 
 goog.require('goog.dom');
 goog.require('goog.net.XhrIo');
-
-goog.require('goog.ui.Popup');
-goog.require('goog.ui.Zippy');
-
-goog.require('goog.array');
-goog.require('goog.debug.DivConsole');
-goog.require('goog.debug.LogManager');
 goog.require('goog.events');
-goog.require('goog.log');
 goog.require('goog.object');
-goog.require('goog.ui.Menu');
-goog.require('goog.ui.MenuBarRenderer');
-goog.require('goog.ui.MenuButton');
-goog.require('goog.ui.MenuItem');
-goog.require('goog.ui.Separator');
 goog.require('goog.ui.decorate');
-goog.require('goog.ui.menuBar');
-goog.require('goog.ui.menuBarDecorator');
-goog.require('goog.ui.Css3MenuButtonRenderer');
 goog.require('goog.ui.Container');
-goog.require('goog.ui.ContainerScroller');
 goog.require('goog.ui.Control');
-goog.require('goog.ui.SelectionModel');
 goog.require('goog.style');
-goog.require('goog.events.FocusHandler');
-goog.require('goog.ui.Dialog');
-goog.require('goog.ui.Prompt');
 
-/** @param {function(Event)}  callback*/
+/**
+ * In common.js described all common functions for the service
+*/
+
+/** @param {function(Event)}  callback */
 var callback = function(e) {
     var xhr = /** @type {goog.net.XhrIo} */ (e.target);
     if (xhr.getStatus() == 200) {
@@ -40,26 +23,27 @@ var callback = function(e) {
     }
 };
 
-/** @param {function(Element)} buildTableCars  */
+/**
+ * Wrapper function for function listOfCars 
+ * @param  {string} url of required json
+ */
 autoService.common.buildTableCars = function(url){
     goog.net.XhrIo.send(url, function(e) {
         var xhr = /** @type {goog.net.XhrIo} */ (e.target);
+        /** @type {Object}*/
         var jsonobj = xhr.getResponseJson();
+        
         autoService.common.listOfCars(jsonobj);
     });
 };
 
-
-/** @param {function(Element)} listOfCars  */
+/**
+ * Renders table of available car brands for auction
+ * @param  {Object} jsonobj parsed json
+ */
 autoService.common.listOfCars = function(jsonobj){
-    //var parentElement = 'car-list';
-    //var dom = goog.dom.getDomHelper(parentElement);
-    //var component = new goog.ui.Component(dom);
-    //var component = new goog.ui.Component(goog.dom.getElement('car-list'));
-
+    /** @type {goog.ui.Container} container for table 'Auction'*/
     var tableContainer = new goog.ui.Container();
-    //tableContainer.setId('Table Container');
-
     var tableHeader = new goog.ui.Control(
         goog.dom.createDom('table',"table table-bordered table-hover",
             goog.dom.createDom('thead',undefined,
@@ -105,49 +89,44 @@ autoService.common.listOfCars = function(jsonobj){
     tableContainer.render(goog.dom.getElement('car-list'));
 };
 
-
-/** @param {function(Element)}  buildMenu */
-autoService.common.buildMenu = function(rootNode) {
+/**
+ * Renders main menu
+ * @param {function()}  buildMenu
+ */
+autoService.common.buildMenu = function() {
     var menubar = new goog.ui.Component();//goog.ui.menuBar.create();
     var menuNames = ["Home","Auction","Catalog","Body parts", "Engines", "Wheels & tires"];
     var links = ["#/","#/auction/all","#/catalog","#/catalog/body-parts","#/catalog/engines","#/catalog/wheels-tires"];
     var menuOptions = [];
 
+    var prev;
     var listener = function(e) {
-        location.href = e.target.idlink;
+        var el = goog.dom.getElement(e.target.id);
+        goog.style.setStyle(el, "background", "rgba(16, 22, 45, 0.37)");  
+        if(prev!=null)
+            goog.style.setStyle(prev, "background", "rgb(0,73,105)"); 
+        prev=el;
     };
-    //goog.style.setStyle(goog.dom.getElement('menuBarProgrammatic'),"cursor", "default");
+
     for (i in menuNames) {
-        //var menu = new goog.ui.Menu();
-        var link = goog.dom.createDom('a',{'href':links[i]}, menuNames[i]);
-        //var cont = goog.dom.createDom('p','pcont', link);
-        //var btn = new goog.ui.MenuButton(cont, menu,new goog.ui.Css3MenuButtonRenderer());
-        
-        var btn = new goog.ui.Control(goog.dom.createDom('p','menu-item', link));
-        btn.idlink = links[i];
-        btn.setDispatchTransitionEvents(goog.ui.Component.State.ALL, true);
-        menubar.addChild(btn, true);
-        goog.events.listen(btn, goog.events.EventType.CLICK,listener);
-    }     
-    menubar.render(goog.dom.getElement('menuBarProgrammatic'));
+        var dom = goog.dom.createDom('a',{'href':links[i],'class':'menu-item'}, menuNames[i]);
+       dom.id='menu-item-'+i;
+        var link = new goog.ui.Control(dom);
+        link.idlink = links[i];
+        menubar.addChild(link, true);
+        dom.st='0';
+        goog.events.listen(dom, goog.events.EventType.CLICK,listener);
+        link.render(goog.dom.getElement('menu-bar'));
+    }
+    //menubar.render(goog.dom.getElement('menu-bar'));
+
 };
-/** @param {function(Element)}  buildCarousel*/
-autoService.common.buildCarousel = function(parentElement) {
-    /** @param {string} */
-    //var link = "http://sftours.redandwhite.com/images/Red-and-White-Fleet-San-Francisco-2062.jpg";
-    var dom = goog.dom.getDomHelper(parentElement);
-    var component = new goog.ui.Component(dom);
-    /*
-    var dom = existingComponent.getDomHelper();
-    var child = new goog.ui.Component(dom);
-    existingComponent.addChild(child, true);
-    */
-    var link = "/images/carousel/parts.jpg";
-    var img = goog.dom.createDom('img',{'class':'carousel','src':link});
 
-    goog.dom.appendChild(parentElement,img);
-
-    component.render(parentElement);
-
-
+/** 
+ * Decorates carousel to the main page
+ * @param {function()}  buildCarousel
+ */
+autoService.common.buildCarousel = function() {
+    var carousel = new gweb.ui.SlidingCarousel(false /* renderNavButtons*/);
+    carousel.decorate(goog.dom.getElement('photography-carousel'),undefined, undefined, 3000);
 };

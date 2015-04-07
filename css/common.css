@@ -1,18 +1,67 @@
 body style {
   -webkit-user-select: auto !important;
 }
+/*
+* {
+  margin: 0;
+}
+*/
+html, body {
+  height: 100%;
+  //font-size: 13px !important;
+  font-family: arial,sans-serif;
+  //color: #444;
+  //line-height: 1.5;
+}
+body{
+    //background-image: url("/images/triangle.jpg");
+    //background-image: url("/images/bg-gray.jpg") ;
+    //background: rgb(177, 177, 177);
+   
+    //background-color: #bdc3c7;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    background: url('/images/background.png') repeat #262626;
+    -webkit-touch-callout: text;
+    -webkit-user-select: text;
+    -khtml-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    user-select: text;
+
+    outline: none;
+}
 header {
-  height: 130px;
+  height: 60px;
   width: 880px;
   margin: 0px auto;
   padding: 10px;
   background: url("/images/slvkoby1.jpg");
+
+  border-width: 0;
+  -moz-box-shadow: 0px 0px 30px rgba(255, 0, 0, 0.5);
+  -webkit-box-shadow: 0px 0px 30px rgba(255, 0, 0, 0.5);
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+  //border-left: 1px solid #000;
+  //border-right: 1px solid #000;
+  position: relative;
+  z-index: 1;
+
 }
+footer{
+   position: absolute;
+   bottom: 0;
+   background: url("/images/bg.jpg") repeat-x;
+   //opacity: 0.9;
+   height: 40px;
+   margin-top: -40px;
+   width: 100%;
+ }
 .main-logo {
   float: left;
 }
 .main-logo > img {
-  width: 260px;
+  width: 150px;
 }
 .main-logo > span {
   
@@ -30,53 +79,37 @@ header {
   background: rgba(189, 189, 189, 0.69);
 }
 
-#menuBarProgrammatic {
+.menu-bar {
   width: 900px;
   height: 50px;
   margin: 0px auto;
-  //border: 1px solid #222;
   background-color: #33a1ba;
-  //background-image: linear-gradient(#33a1ba, #39b1cc);
- // background-image: url("../images/menu.png");
- background-color: rgb(0,73,105);
-  //border-radius: 6px;
-  //box-shadow: 0 1px 1px #777;
+  background-color: rgb(0,73,105);
+  text-decoration: none;
+  position: relative;
+  z-index: 0; 
 }
-#menuBarProgrammatic li:hover > a {
-  color: #fafafa;
-}
+
 .menu-item {
   cursor: pointer;
   float: left;
-  margin-top: 6px;
-  padding: 0px 15px;
-  padding-top: 11px;
-  height: 23px;
-  font-family: 'Open Sans', Helvetica, sans-serif;
-  text-shadow: 0 1px 0 #000;
-  //border-right: 1px solid rgba(80, 80, 80, 0.12);
+  padding: 17px 15px;
+  text-shadow: 1px 1px 5px #000;
   border-right: 1px solid rgba(16, 22, 45, 0.37);
   text-decoration: none;
-  //font-size: 13px;
   font-weight: 700;
   color: #d3eced;
   text-transform: uppercase;
-  //letter-spacing: 1px;
+}
+.menu-item:hover {
+  color: rgb(75,172,207);
+  text-decoration: none;
+  background-color: rgb(0, 50, 73);
+}
+.menu-item:active {
+  background-color: rgb(0, 45, 66);
 }
 
-.menu-item:hover {
-   // color: #fafafa;
-   //background-color: rgb(0,160,207);
-   //height: 10px;
-}
-.menu-item > a {
-    color: rgb(230, 230, 230);
-    text-decoration: none;
-}
-.menu-item > a:hover {
-    //color: rgb(0,160,207);
-    text-decoration: none;
-}
 /* Demo styles for goog.ui.Container */
 .goog-menubar {
   
@@ -168,21 +201,6 @@ header {
 }
 
 
-body{
-    background-image: url("../images/triangle.jpg");
-    //background-color: #bdc3c7;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 14px;
-
-      -webkit-touch-callout: text;
-    -webkit-user-select: text;
-    -khtml-user-select: text;
-    -moz-user-select: text;
-    -ms-user-select: text;
-    user-select: text;
-
-    outline: none;
-}
 
 footer{
    margin-bottom: -100px;
@@ -241,54 +259,56 @@ table {
 .button-more {
   text-align:center; 
   vertical-align:middle;
-  padding: 5px 10px;
+  border-radius: 3px;
+  padding: 3px;
   margin: 5px 10px;
 }
-  .modal-dialog-bg {
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    background-color: #FFF;
-  }
+.modal-dialog-bg {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  background-color: #1F1F1F;
+  z-index: 1;
+}
 
-  .modal-dialog {
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    width: 300px;
-    background-color: #AAF;
-    border: 2px solid #99c0ff;
-  }
+.modal-dialog {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 300px;
+  background-color: #AAF;
+  border: 2px solid #99c0ff;
+}
 
-  .modal-dialog-title {
-    position:relative;
-    background: #C3D9FF;
-    padding: 4px;
-    font: bold 11px verdana;
-    cursor: default;
-  }
+.modal-dialog-title {
+  position:relative;
+  background: #C3D9FF;
+  padding: 4px;
+  font: bold 11px verdana;
+  cursor: default;
+}
 
-  .modal-dialog-content {
-    background: #E8EEF7;
-    padding: 12px 18px 12px 18px;  font: normal 12px verdana;
-    font: normal 12px verdana;
-  }
+.modal-dialog-content {
+  background: #E8EEF7;
+  padding: 12px 18px 12px 18px;  font: normal 12px verdana;
+  font: normal 12px verdana;
+}
 
-  .modal-dialog-userInput {
-    font: normal 12px verdana;
-    width: 90%;
-  }
+.modal-dialog-userInput {
+  font: normal 12px verdana;
+  width: 90%;
+}
 
-  .modal-dialog-buttons {
-    background: #E8EEF7;
-    padding: 4px;
-    font: normal 12px verdana;
-    text-align: right;
-  }
+.modal-dialog-buttons {
+  background: #E8EEF7;
+  padding: 4px;
+  font: normal 12px verdana;
+  text-align: right;
+}
 
-  .modal-dialog-buttons button {
-    margin: 5px;
-  }
+.modal-dialog-buttons button {
+  margin: 5px;
+}
 
 
 
@@ -358,26 +378,48 @@ table {
 .content{
 	width: 900px;
 	margin: 0 auto;
-    min-height:100%
+  min-height:100%;
 }
 
 .container{
     float: left;
     width: 900px;
-    margin: -4px auto;
+    margin: 0px auto;
     background-image: url("../images/bg-light.png");
-    min-height:100%
+    min-height:100%;
+    padding-bottom: 20px;
+    
+    border-width: 0;
+    -moz-box-shadow: 0px 0px 30px rgba(255, 0, 0, 0.5);
+    -webkit-box-shadow: 0px 0px 30px rgba(255, 0, 0, 0.5);
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+    //border-left: 1px solid #000;
+    //border-right: 1px solid #000;
+    position: relative;
+    z-index: 1;
 }
 
-#carousel {
-    width: 100%;
-    height: 250px;
-}
+
 .carousel {
     width: 100%;
     height: 250px;
 }
-
+.main-block {
+  float: left;
+  margin-left: 50px;
+  padding-right: 10px;
+  width: 800px;
+}
+.main-block-row {
+  display: inline-block;
+  background: white;
+  width: 700px;
+  padding: 15px 60px;
+  margin: 10px auto;
+  border: 1px solid #918F8F;
+  border-radius: 2px;
+  box-shadow: 2px 2px 1px #CCCCCC;
+}
 .left-block {
   float: left;
   
@@ -398,16 +440,16 @@ table {
   background: white;
   //border: 2px solid black;
   //border-radius: 4px;
-  //width: 250px;
-  margin: 10px 5px;
+  width: 220px;
+  //margin: 10px 5px;
   padding: 10px 10px;
 }
 .right-block-row {
   display: inline-block;
   background: white;
-  //width: 540px;
-  margin: 10px 5px;
-  padding: 10px 10px;
+  width: 570px;
+  padding: 10px;
+  margin-bottom: 10px;
 }
 form{
     width:300px;
@@ -440,12 +482,6 @@ form{
   cursor: pointer;
 }
 */
-.modal-dialog-bg {
-  background: #666;
-  left: 0;
-  position: absolute;
-  top: 0;
-}
 
 .modal-dialog-title {
   background: #e0edfe;
@@ -521,6 +557,9 @@ form{
 }
 .car-list{
   //width: 100%;
+  height: 300px;
+  background: white;
+  padding: 5px;
 
 }
 .catalog-header {
@@ -530,7 +569,8 @@ form{
   color: white;
   padding:10px 50px;
   margin-top: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 0px;
+  height: 20px;
   color: #FFFFFF;
   font-size: 16px;
   font-weight: bold;
@@ -579,15 +619,92 @@ form{
   margin: 0px 0px;
 }
 
-#owl-demo .item img{
-    display: block;
-    width: 100%;
-    height: auto;
-
-}
-
 .car-parts {
   background: #fff;
-  margin: 0px 140px;
-padding: 10px 0px;
+  //margin: 0px 140px;
+  padding: 10px 0px;
+  width: 800px;
+  //height: 200px;
+}
+
+
+
+
+.latest-winners{
+  width: 440px;
+  height: 100px;
+  font-size: 8pt;
+  padding: 20px;
+  //border: 3px solid gray;
+}
+
+.won-lot{
+  width: 100px;
+  height: 90px;
+  display: inline-block;
+  margin: 10px;
+  padding: 15px;
+  border: 1px solid gray;
+}
+.latest-winners-img {
+  width: 96px;
+  margin: 1px;
+}
+.latest-winners-details{
+  padding:2px;
+  margin:2px;
+}
+
+.hot-bids{
+  width: 440px;
+  height: 340px;
+  font-size: 8pt;
+  /* margin: 2px; */
+  padding: 20px;
+  border: 3px solid gray;
+}
+.hot-bids-block{
+  width: 300px;
+  padding:2px;
+  margin:2px;
+  border: 1px solid gray;
+}
+
+.car-part-item{
+  width: 540px;
+  height: 70px;
+  display: inline-block;
+  margin: 5px;
+  padding: 10px;
+  //border: 1px solid gray;
+  background: rgba(223, 223, 223, 0.58);
+  border-width: 0; 
+  -moz-box-shadow: 0px 0px 30px rgba(37, 37, 37, 1);
+  -webkit-box-shadow: 0px 0px 30px rgba(37, 37, 37, 1);
+  box-shadow: 0px 0px 1px rgba(37, 37, 37, 1);
+}
+.car-part-item:hover {
+  background: rgba(75,172,207,0.5);
+  -moz-box-shadow: 0px 0px 30px rgba(255, 0, 0, 0.5);
+  -webkit-box-shadow: 0px 0px 30px rgba(255, 0, 0, 0.5);
+  box-shadow: 0px 0px 2px rgba(56, 121, 207, 1);
+}
+.car-part-item:active {
+  background: rgba(75,172,207,0.5);
+  -moz-box-shadow: 0px 0px 30px rgba(255, 0, 0, 0.5);
+  -webkit-box-shadow: 0px 0px 30px rgba(255, 0, 0, 0.5);
+  box-shadow: 0px 0px 1px 2px rgba(56, 121, 207, 1);
+}
+
+.about-container{
+  width: 800px;
+  min-height: 400px;
+  padding: 10px;
+}
+.about-container > h1{
+  margin: 10px
+}
+.about-container > img{
+  width: 300px;
+  margin: 10px;
 }

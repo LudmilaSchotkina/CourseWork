@@ -2,42 +2,24 @@ goog.provide('autoService.auction');
 
 goog.require('goog.dom');
 goog.require('goog.net.XhrIo');
-
-goog.require('goog.ui.Popup');
-goog.require('goog.ui.Zippy');
-
-goog.require('goog.array');
-goog.require('goog.debug.DivConsole');
-goog.require('goog.debug.LogManager');
 goog.require('goog.events');
-goog.require('goog.log');
 goog.require('goog.object');
-goog.require('goog.ui.Menu');
-goog.require('goog.ui.MenuBarRenderer');
-goog.require('goog.ui.MenuButton');
-goog.require('goog.ui.MenuItem');
-goog.require('goog.ui.Separator');
 goog.require('goog.ui.decorate');
-goog.require('goog.ui.menuBar');
-goog.require('goog.ui.menuBarDecorator');
-goog.require('goog.ui.Css3MenuButtonRenderer');
 goog.require('goog.ui.Container');
-goog.require('goog.ui.ContainerScroller');
 goog.require('goog.ui.Control');
-goog.require('goog.ui.SelectionModel');
 goog.require('goog.style');
-goog.require('goog.events.FocusHandler');
 goog.require('goog.ui.Dialog');
-goog.require('goog.ui.Prompt');
 goog.require('goog.json');
 
+/**
+ * In auction.js described all functions for the auction autos
+*/
 
-
-
-
-
-
-/** @param {function(Element)} listOfLots  */
+/**
+ * Renders table of lots
+ * @param  {Object} jsonobj0  parsed json
+ * @param  {string=} brandName optionan name of car brand
+ */
 autoService.auction.listOfLots = function(jsonobj0,brandName){
     var jsonobj=jsonobj0[0];
     var tableContainer = new goog.ui.Container();
@@ -58,6 +40,7 @@ autoService.auction.listOfLots = function(jsonobj0,brandName){
     var tbody = goog.dom.createDom('tbody',undefined);
 
     var makeBetListener = function(e) {
+        /** @type {string} */
         var id = e.target.idfield;
         var key = e.target.key;
         var usernameValue;
@@ -72,18 +55,14 @@ autoService.auction.listOfLots = function(jsonobj0,brandName){
         }
 
         var length = jsonobj[key][id].bid.length - 1;
-        //alert(length);
-        //alert(jsonobj[id].bid[0].username);
         jsonobj[key][id].bid[length].username = usernameValue;
         jsonobj[key][id].bid[length].rate = betValue;
-        
-        //alert(jsonobj[id].bid[length].username);
         var postData = JSON.stringify(jsonobj);
         goog.net.XhrIo.send('/api/auction-auto/all-models.json', callback, 'POST', postData);
-
         alert(usernameValue + ': ' + betValue);
     }
-    var listener = function(e) {
+    /** @param {function(Event)}  showInfoListener */
+    var showInfoListener = function(e) {
         var id = e.target.idfield;
         var key = e.target.key;
         //var domHelper = goog.dom.getDomHelper('popup');
@@ -116,7 +95,7 @@ autoService.auction.listOfLots = function(jsonobj0,brandName){
             );
 
         var spanInfo = goog.dom.createDom('span',undefined, "Enter your username and a new bet");
-        var buttonDom = goog.dom.createDom('button',{'type':'submit','name':'commit','value':'some'}, "Make a bet");
+        var buttonDom = goog.dom.createDom('button',{'class':'button-more','type':'submit','name':'commit','value':'some'}, "Make a bet");
         buttonDom.idfield = id;
         buttonDom.key = key;
 
@@ -136,7 +115,7 @@ autoService.auction.listOfLots = function(jsonobj0,brandName){
             );
         
         goog.events.listen(buttonDom, goog.events.EventType.CLICK,makeBetListener);
-        makeBetForm.setAllowTextSelection(true); //recursively ??
+        makeBetForm.setAllowTextSelection(true); 
         var betInfo = new goog.ui.Control();
         betInfo.setAllowTextSelection(true);
         betInfo.addChild(lastBet,true);
@@ -170,8 +149,7 @@ autoService.auction.listOfLots = function(jsonobj0,brandName){
 
     for (var key in jsonobj) {
         for(var i in jsonobj[key]){
-            //alert(key + " значение:"+ i +"__" + jsonobj[key][i].id);
-            var betButton = goog.dom.createDom('button',{'type':'submit', 'class': 'button-more'}, "Learn more..");
+            var betButton = goog.dom.createDom('button',{'type':'submit', 'class':'css-button'}, "Learn more..");
             var img = goog.dom.createDom('img',{'class': 'table-image', 'src': jsonobj[key][i].img});
             var tr = goog.dom.createDom('tr',undefined,
                 img,
@@ -185,12 +163,9 @@ autoService.auction.listOfLots = function(jsonobj0,brandName){
             betButton.idfield = i;
             betButton.key = key;
 
-            goog.events.listen(betButton, goog.events.EventType.CLICK, listener);
+            goog.events.listen(betButton, goog.events.EventType.CLICK, showInfoListener);
         }
     }
-
-   // var ttbody = new goog.ui.Control(tbody);
-    //tableHeader.addChild(ttbody,true);
     goog.dom.appendChild(tableHeader,tbody)
     var table = new goog.ui.Control(tableHeader);
     tableContainer.addChild(table,true);
@@ -220,4 +195,4 @@ var component = new goog.ui.TableSorter();
     component.setSortFunction(1, goog.ui.TableSorter.alphaSort);
     component.setSortFunction(2,
         goog.ui.TableSorter.createReverseSort(goog.ui.TableSorter.numericSort));
- */
+*/

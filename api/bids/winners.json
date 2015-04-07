@@ -4,7 +4,7 @@
 			{
 				"id":"515",
 				"lot":"A234D",
-				"img": "../../images/1.jpg",
+				"img": "/images/audi/1.jpg",
 				"model": "A6",
 				"modification": "",
 				"year": "2013",
@@ -20,7 +20,7 @@
 			{
 				"id":"516",
 				"lot":"B234N",
-				"img": "http://www.avtorinok.ru/news/pics/Audi_A4_pic_24667.jpg",
+				"img": "/images/bmw/BMW_3.jpg",
 				"model": "4",
 				"modification": "",
 				"year": "2013",	

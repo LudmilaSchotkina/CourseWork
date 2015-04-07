@@ -1,3 +1,25 @@
+.css-button{ 
+    padding: 6px; 
+    text-align: center; 
+    padding: 5px 10px;
+  margin: 5px 10px;
+    color: #000000; 
+    font-weight: normal;
+    background: #F7FBFF; 
+    background: -moz-linear-gradient(top, #F7FBFF 0%, #BDBDBD 100%); 
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#F7FBFF), color-stop(100%,#BDBDBD)); 
+    background: -webkit-linear-gradient(top, #F7FBFF 0%,#BDBDBD 100%); 
+    background: -o-linear-gradient(top, #F7FBFF 0%,#BDBDBD 100%); 
+    background: -ms-linear-gradient(top, #F7FBFF 0%,#BDBDBD 100%); 
+    background: linear-gradient(to bottom, #F7FBFF 0%,#BDBDBD 100%); 
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#F7FBFF',  endColorstr='#BDBDBD', GradientType=0 ); 
+    border-width: 1px; 
+    border-style: solid; 
+    border-color: #B3BEC9; 
+    border-radius: 3px; 
+    box-shadow: 0px 0px 0px 0px #FFFFFF; 
+    text-shadow: 0px 0px 0px #FFFFFF; 
+}
 /*
 .login {
   position: relative;
