@@ -40,8 +40,8 @@ auctionAppCtrls.controller('CatalogCtrl', ['$scope', 'Catalog',
   function ($scope, Catalog) {
     Catalog.query(function(data) {
       //$scope.data = data;
-      autoService.catalog.listOfModelsForParts("/api/catalog-car-parts/all-autos.json");
-      //autoService.catalog.listOfCarsForParts($scope.data);
+      //autoService.catalog.listOfModelsForParts("/api/catalog-car-parts/all-autos.json");
+      autoService.catalog.listOfCarsForParts(data);
       //autoService.auction.buildTableLots('/api/auction-auto/'+ $routeParams.carBrandId +'.json',$routeParams.carBrandId);
     });
   }
@@ -69,11 +69,20 @@ auctionAppCtrls.controller('PartTypeCtrl', ['$scope','$routeParams', 'Catalog', 
     });
   }
 ]);
-auctionAppCtrls.controller('PartTypeCarBrandCtrl', ['$scope','$routeParams', 'PartTypeCarBrand',
-  function ($scope, $routeParams, PartTypeCarBrand) {
+auctionAppCtrls.controller('PartTypeCarBrandCtrl', ['$scope','$routeParams', 'Catalog', 'PartTypeCarBrand',
+  function ($scope, $routeParams, Catalog, PartTypeCarBrand) {
+    
+    var partType = $routeParams.partTypeId;
+    Catalog.query(function(data) {
+      //autoService.catalog.listOfPartsTypeCars("/api/catalog-car-parts/all-autos.json");
+      autoService.catalog.buildPartsTypeCars(data,partType);
+    });
+
     PartTypeCarBrand.query({partTypeId: $routeParams.partTypeId, carBrandId: $routeParams.carBrandId}, 
       function(data) {
-        autoService.catalog.listOfPartsTypeCars("/api/catalog-car-parts/all-autos.json");
+        var partType = $routeParams.partTypeId;
+        //autoService.catalog.listOfPartsTypeCars("/api/catalog-car-parts/all-autos.json");
+        autoService.catalog.buildPartsTypeCars(data,partType);
         autoService.catalog.listOfPartsByType(
           "/api/catalog-car-parts/" + 
           $routeParams.partTypeId + "/" +
@@ -82,17 +91,17 @@ auctionAppCtrls.controller('PartTypeCarBrandCtrl', ['$scope','$routeParams', 'Pa
       });
     }
 ]);
-auctionAppCtrls.controller('PartTypeModelCtrl', ['$scope','$routeParams', 'PartTypeModelCarBrand',
-  function ($scope, $routeParams, PartTypeModelCarBrand) {
+auctionAppCtrls.controller('PartTypeModelCtrl', ['$scope','$routeParams', 'Catalog', 'PartTypeModelCarBrand',
+  function ($scope, $routeParams, Catalog, PartTypeModelCarBrand) {
     PartTypeModelCarBrand.query({
       partTypeId: $routeParams.partTypeId, 
       carBrandId: $routeParams.carBrandId, 
       modelId: $routeParams.modelId
     }, 
       function(data) {
-        alert($routeParams.carBrandId);
-        alert($routeParams.modelId);
-        autoService.catalog.listOfPartsTypeCars("/api/catalog-car-parts/all-autos.json");
+        var partType = $routeParams.partTypeId;
+        //autoService.catalog.listOfPartsTypeCars("/api/catalog-car-parts/all-autos.json");
+        autoService.catalog.buildPartsTypeCars(data,partType);
         autoService.catalog.listOfPartsByType(
           "/api/catalog-car-parts/" + 
           $routeParams.partTypeId + "/" +

@@ -1,14 +1,19 @@
 goog.provide('autoService.catalog');
 goog.require('goog.dom');
 goog.require('goog.net.XhrIo');
+goog.require('goog.ui.AnimatedZippy');
 goog.require('goog.ui.Zippy');
+goog.require('goog.ui.ZippyEvent');
 goog.require('goog.events');
 goog.require('goog.object');
+goog.require('goog.array');
 goog.require('goog.ui.decorate');
 goog.require('goog.ui.Container');
 goog.require('goog.ui.Control');
 goog.require('goog.style');
-goog.require('goog.ui.Dialog')
+goog.require('goog.ui.Dialog');
+//goog.provide('example');
+goog.require('autoService.templates');
 
 
 /** @param {function(Element)} listOfModelsForParts  */
@@ -19,6 +24,7 @@ autoService.catalog.listOfModelsForParts = function(url){
         autoService.catalog.listOfCarsForParts(jsonobj);
     });
 };
+
 /** @param {function(Element)} listOfCarsForParts  */
 autoService.catalog.listOfCarsForParts = function(jsonobj){
     var carList = goog.dom.getElement('car-list');
@@ -30,6 +36,10 @@ autoService.catalog.listOfCarsForParts = function(jsonobj){
     var listener = function(e) {
     };
 
+    var anims  = {};
+    var open   = null;
+
+    var headersArray = [];
     for(var i in jsonobj){
         var logo = goog.dom.createDom('div',{'class':'car-logo'},
             goog.dom.createDom('img',{'src':jsonobj[i].logo, 'width':'26px'})
@@ -41,6 +51,7 @@ autoService.catalog.listOfCarsForParts = function(jsonobj){
 
         //var allModels = new goog.ui.Control(goog.dom.createDom('div',''));
         var allModels = goog.dom.createDom('div','zippy-models');
+      
         goog.style.setSize(divBrand, width, 'auto');
         goog.style.setSize(allModels, width,'auto');
 
@@ -56,9 +67,33 @@ autoService.catalog.listOfCarsForParts = function(jsonobj){
         var allModelsControl = new goog.ui.Control(allModels);
         divContainer.addChild(divBrandControl,true);
         divContainer.addChild(allModelsControl,true);
-        var zippy = new goog.ui.Zippy(divBrand, allModels,false);
-        //goog.events.listen(zippy, goog.events.EventType.CLICK, logEvent);
+
+       // var zippy = new goog.ui.Zippy(divBrand, allModels,false);
+        var animation = new goog.ui.AnimatedZippy(divBrand, allModels);
+        animation.amount=jsonobj[i].amount;
+        animation.animationDuration = 400;
+        goog.events.listen(animation, goog.ui.Zippy.Events.TOGGLE, zippyToggle);
+        anims[goog.getUid(animation)] = animation;
+        
+     
         allCarsContainer.addChild(divContainer,true);
+    }
+    function zippyToggle(event) {
+        var uid = goog.getUid(event.target);
+        if(event.target.amount!=0){
+            if (event.expanded && uid!=open) {
+                if (open) {
+                    anims[open].animationDuration = 0;
+                    anims[open].setExpanded(false);
+                    anims[open].animationDuration = 400;
+                }
+                open = uid;
+            }
+        } else {
+            anims[uid].animationDuration = 0;
+            anims[uid].setExpanded(false);
+        }
+        
     }
     allCarsContainer.render(carList);
 };
@@ -80,7 +115,7 @@ autoService.catalog.buildNavMenu = function(){
     var arr = url.split("/");
     var brand = arr[arr.length-2];
     var model = arr[arr.length-1];
-//alert(arr);
+
     var menu = new goog.ui.Control(
         goog.dom.createDom('div',undefined,
             goog.dom.createDom('a',{'href': '#/'},"Home"),
@@ -242,6 +277,13 @@ var hello = function (who) {
 say(hello);
  */
 autoService.catalog.buildPartsTypeCars = function(jsonobj, partType){
+/*
+    var message="jbkkj";
+
+    var data = {greeting: message, year: new Date().getFullYear()};
+    var html = autoService.templates.welcome(data);
+    goog.dom.getElement('hello').innerHTML = html;
+    */
 
     var carList = goog.dom.getElement('car-list');
 
@@ -252,10 +294,11 @@ autoService.catalog.buildPartsTypeCars = function(jsonobj, partType){
     
     var listener = function(e) {
     };
-
+    var anims={};
+    var open = null;
     for(var i in jsonobj ){
-        var link = goog.dom.createDom('a',{'margin':'5px'}, jsonobj[i].car_brand);
-        var divBrand = goog.dom.createDom('div',{'class':'div-brand','width':'700px'}, link);
+        var link = goog.dom.createDom('a',{'margin':'5px'}, jsonobj[i].car_brand, jsonobj[i].amount);
+        var divBrand = goog.dom.createDom('div',{'class':'div-brand-parts'}, link);
         var divBrandControl = new goog.ui.Control(divBrand);
         var allModels = goog.dom.createDom('div','zippy-models');
         goog.style.setSize(divBrand, width, 'auto');
@@ -276,9 +319,33 @@ autoService.catalog.buildPartsTypeCars = function(jsonobj, partType){
         var allModelsControl = new goog.ui.Control(allModels);
         divContainer.addChild(divBrandControl,true);
         divContainer.addChild(allModelsControl,true);
-        var zippy = new goog.ui.Zippy(divBrand, allModels,false);
+        //var zippy = new goog.ui.Zippy(divBrand, allModels,false);
+        var animation = new goog.ui.AnimatedZippy(divBrand, allModels);
+        animation.amount=jsonobj[i].amount;
+        animation.animationDuration = 400;
+        animation.animationAcceleration = goog.fx.easing.easeOut;
+        goog.events.listen(animation, goog.ui.Zippy.Events.TOGGLE, zippyToggle);
+        anims[goog.getUid(animation)] = animation;
+
         //goog.events.listen(zippy, goog.events.EventType.CLICK, logEvent);
         allCarsContainer.addChild(divContainer,true);
+    }
+    function zippyToggle(event) {
+        var uid = goog.getUid(event.target);
+        if(event.target.amount!=0){
+            if (event.expanded && uid!=open) {
+                if (open) {
+                    anims[open].animationDuration = 0;
+                    anims[open].setExpanded(false);
+                    anims[open].animationDuration = 400;
+                }
+                open = uid;
+            }
+        } else {
+            anims[uid].animationDuration = 0;
+            anims[uid].setExpanded(false);
+        }
+        
     }
     allCarsContainer.render(carList);
 };
@@ -300,7 +367,7 @@ autoService.catalog.buildHeaders = function(partType){
             text = "Body parts";
             break;
         case 'engines': 
-            text = "Engines & components";
+            text = "Engines";
             break;
         case 'wheels-tires': 
             text = "Wheels & tires";
@@ -322,39 +389,215 @@ autoService.catalog.buildHeaders = function(partType){
 
 }
 autoService.catalog.buildPartsTypeAll = function(jsonobj, partType){
-    var listener = function(e) {
+     var listenerPrevPart = function(e){
+        var id = e.target.iditem;
         var dialogComponent = new goog.ui.Component();
- 
-        var spanInfo = goog.dom.createDom('span',undefined, "Request the price");
-        var buttonDom = goog.dom.createDom('button',{'type':'submit','name':'commit','value':'some'}, "Make a request");
+        
+
+        //var title = goog.dom.createDom('span',undefined, "Make an enquiry");
+        var buttonDom = goog.dom.createDom('button',{'type':'submit','name':'commit','value':'some'}, "Send enquiry");
         //buttonDom.idfield = id;
        // goog.events.listen(buttonDom, goog.events.EventType.CLICK,makeRequestListener);
 
-        var makeBetForm = new goog.ui.Control(
-                goog.dom.createDom('form',{'id':'info-order','class':'info-bet'/*,'name':'betForm','method':'post', 'action':'controller'*/},
-                    spanInfo,
+        var sendEnquiryForm = new goog.ui.Control(
+                goog.dom.createDom('form',{'id':'info-order','class':'info-enquiry'/*,'name':'betForm','method':'post', 'action':'controller'*/},
+                    goog.dom.createDom('span',undefined, "Make an enquiry"),
                     goog.dom.createDom('p',undefined,
-                        goog.dom.createDom('input',{'class':'info-order-input','type':'text','name':'username','value':'','placeholder':'Enter your name'})
+                        goog.dom.createDom('input',{'type':'text','name':'username','value':'','placeholder':'Enter your name'})
                     ),
                     goog.dom.createDom('p',undefined,
-                        goog.dom.createDom('input',{'class':'info-order-input','type':'text','name':'username','value':'','placeholder':'Enter your e-mail'})
+                        goog.dom.createDom('input',{'class':'info-order-input','type':'text','name':'email','value':'','placeholder':'Enter your e-mail'})
+                    ),
+                    goog.dom.createDom('p',undefined,
+                        goog.dom.createDom('input',{'class':'info-order-input','type':'text','name':'phone','value':'','placeholder':'Enter your phone number'})
+                    ),
+                    goog.dom.createDom('p',undefined,
+                        goog.dom.createDom('textarea',{'class':'info-order-input','name':'info','value':'','placeholder':'Describe your auto and required part'})
                     ),
                     goog.dom.createDom('p',undefined,
                         buttonDom
                     )
                 )
             );
-        makeBetForm.setAllowTextSelection(true); //recursively ??
-        var betInfo = new goog.ui.Control();
-        betInfo.addChild(makeBetForm,true);
-        dialogComponent.addChild(betInfo,true);
-        betInfo.setAllowTextSelection(true);
+        var images = new goog.ui.Control(goog.dom.createDom('img',{'class':'car-parts-modal-img','src':jsonobj[0].img}));
+        var info = new goog.ui.Control(goog.dom.createDom('div','info-block',
+            goog.dom.createDom('p',undefined, "Car brand: ", jsonobj[id].brand),
+            goog.dom.createDom('p',undefined, "Model: ",jsonobj[id].model),
+            goog.dom.createDom('p',undefined, "Year: ",jsonobj[id].year),
+            goog.dom.createDom('p',undefined, "Type: ",jsonobj[id].title),
+            goog.dom.createDom('p',undefined, "Status: ",jsonobj[id].status),
+            goog.dom.createDom('p',undefined, "Price: ",jsonobj[id].price)
+            )
+        );
+        var btnPrev = goog.dom.createDom('button',{'class':'class'}, "<");
+        var btnNext = goog.dom.createDom('button',{'class':'class'}, ">");
+        var btns = goog.dom.createDom('p',undefined,btnPrev,btnNext);
+        btnPrev.iditem = --id;
+        btnNext.iditem = ++id;
+        goog.events.listen(btnPrev, goog.events.EventType.CLICK,listenerPrevPart);
+        goog.events.listen(btnNext, goog.events.EventType.CLICK,listenerNextPart);
+        var navButtons = new goog.ui.Control(btns);
+        
+
+        sendEnquiryForm.setAllowTextSelection(true); //recursively ??
+        var partInfo = new goog.ui.Control();
+        partInfo.addChild(images,true);
+        partInfo.addChild(info,true);
+        partInfo.addChild(sendEnquiryForm,true);
+        partInfo.addChild(navButtons,true);
+
+        partInfo.setAllowTextSelection(true);
+        dialogComponent.addChild(partInfo,true);
 
         var dialog1 = new goog.ui.Dialog();
         dialog1.setEscapeToCancel(true);
         dialog1.setHasTitleCloseButton(true);
         //dialog1.setAutoHide(true);
         dialog1.setDraggable(false);
+
+        dialog1.addChild(dialogComponent,true);
+        dialog1.setDisposeOnHide(true);
+        dialog1.setButtonSet(goog.ui.Dialog.ButtonSet.CANCEL);
+        dialog1.setVisible(true);  
+    }
+    var listenerNextPart = function(e){
+        dialog1.exitDocument();
+        var id = e.target.iditem;
+        var dialogComponent = new goog.ui.Component();
+        
+
+        //var title = goog.dom.createDom('span',undefined, "Make an enquiry");
+        var buttonDom = goog.dom.createDom('button',{'type':'submit','name':'commit','value':'some'}, "Send enquiry");
+        //buttonDom.idfield = id;
+       // goog.events.listen(buttonDom, goog.events.EventType.CLICK,makeRequestListener);
+
+        var sendEnquiryForm = new goog.ui.Control(
+                goog.dom.createDom('form',{'id':'info-order','class':'info-enquiry'/*,'name':'betForm','method':'post', 'action':'controller'*/},
+                    goog.dom.createDom('span',undefined, "Make an enquiry"),
+                    goog.dom.createDom('p',undefined,
+                        goog.dom.createDom('input',{'type':'text','name':'username','value':'','placeholder':'Enter your name'})
+                    ),
+                    goog.dom.createDom('p',undefined,
+                        goog.dom.createDom('input',{'class':'info-order-input','type':'text','name':'email','value':'','placeholder':'Enter your e-mail'})
+                    ),
+                    goog.dom.createDom('p',undefined,
+                        goog.dom.createDom('input',{'class':'info-order-input','type':'text','name':'phone','value':'','placeholder':'Enter your phone number'})
+                    ),
+                    goog.dom.createDom('p',undefined,
+                        goog.dom.createDom('textarea',{'class':'info-order-input','name':'info','value':'','placeholder':'Describe your auto and required part'})
+                    ),
+                    goog.dom.createDom('p',undefined,
+                        buttonDom
+                    )
+                )
+            );
+        var images = new goog.ui.Control(goog.dom.createDom('img',{'class':'car-parts-modal-img','src':jsonobj[0].img}));
+        var info = new goog.ui.Control(goog.dom.createDom('div','info-block',
+            goog.dom.createDom('p',undefined, "Car brand: ", jsonobj[id].brand),
+            goog.dom.createDom('p',undefined, "Model: ",jsonobj[id].model),
+            goog.dom.createDom('p',undefined, "Year: ",jsonobj[id].year),
+            goog.dom.createDom('p',undefined, "Type: ",jsonobj[id].title),
+            goog.dom.createDom('p',undefined, "Status: ",jsonobj[id].status),
+            goog.dom.createDom('p',undefined, "Price: ",jsonobj[id].price)
+            )
+        );
+        var btnPrev = goog.dom.createDom('button',{'class':'class'}, "<");
+        var btnNext = goog.dom.createDom('button',{'class':'class'}, ">");
+        var btns = goog.dom.createDom('p',undefined,btnPrev,btnNext);
+        btnPrev.iditem = --id;
+        btnNext.iditem = ++id;
+        goog.events.listen(btnPrev, goog.events.EventType.CLICK,listenerPrevPart);
+        goog.events.listen(btnNext, goog.events.EventType.CLICK,listenerNextPart);
+        var navButtons = new goog.ui.Control(btns);
+        
+
+        sendEnquiryForm.setAllowTextSelection(true); //recursively ??
+        var partInfo = new goog.ui.Control();
+        partInfo.addChild(images,true);
+        partInfo.addChild(info,true);
+        partInfo.addChild(sendEnquiryForm,true);
+        partInfo.addChild(navButtons,true);
+
+        partInfo.setAllowTextSelection(true);
+        dialogComponent.addChild(partInfo,true);
+
+        var dialog1 = new goog.ui.Dialog();
+        dialog1.setEscapeToCancel(true);
+        dialog1.setHasTitleCloseButton(true);
+        //dialog1.setAutoHide(true);
+        dialog1.setDraggable(false);
+
+        dialog1.addChild(dialogComponent,true);
+        dialog1.setDisposeOnHide(true);
+        dialog1.setButtonSet(goog.ui.Dialog.ButtonSet.CANCEL);
+        dialog1.setVisible(true);  
+    }
+    var listenerCatalog = function(e) {
+        var id = e.target.iditem;
+        var dialogComponent = new goog.ui.Component();
+        
+
+        //var title = goog.dom.createDom('span',undefined, "Make an enquiry");
+        var buttonDom = goog.dom.createDom('button',{'type':'submit','name':'commit','value':'some'}, "Send enquiry");
+        //buttonDom.idfield = id;
+       // goog.events.listen(buttonDom, goog.events.EventType.CLICK,makeRequestListener);
+
+        var sendEnquiryForm = new goog.ui.Control(
+                goog.dom.createDom('form',{'id':'info-order','class':'info-enquiry'/*,'name':'betForm','method':'post', 'action':'controller'*/},
+                    goog.dom.createDom('span',undefined, "Make an enquiry"),
+                    goog.dom.createDom('p',undefined,
+                        goog.dom.createDom('input',{'type':'text','name':'username','value':'','placeholder':'Enter your name'})
+                    ),
+                    goog.dom.createDom('p',undefined,
+                        goog.dom.createDom('input',{'class':'info-order-input','type':'text','name':'email','value':'','placeholder':'Enter your e-mail'})
+                    ),
+                    goog.dom.createDom('p',undefined,
+                        goog.dom.createDom('input',{'class':'info-order-input','type':'text','name':'phone','value':'','placeholder':'Enter your phone number'})
+                    ),
+                    goog.dom.createDom('p',undefined,
+                        goog.dom.createDom('textarea',{'class':'info-order-input','name':'info','value':'','placeholder':'Describe your auto and required part'})
+                    ),
+                    goog.dom.createDom('p',undefined,
+                        buttonDom
+                    )
+                )
+            );
+        var images = new goog.ui.Control(goog.dom.createDom('img',{'class':'car-parts-modal-img','src':jsonobj[0].img}));
+        var info = new goog.ui.Control(goog.dom.createDom('div','info-block',
+            goog.dom.createDom('p',undefined, "Car brand: ", jsonobj[id].brand),
+            goog.dom.createDom('p',undefined, "Model: ",jsonobj[id].model),
+            goog.dom.createDom('p',undefined, "Year: ",jsonobj[id].year),
+            goog.dom.createDom('p',undefined, "Type: ",jsonobj[id].title),
+            goog.dom.createDom('p',undefined, "Status: ",jsonobj[id].status),
+            goog.dom.createDom('p',undefined, "Price: ",jsonobj[id].price)
+            )
+        );
+        var btnPrev = goog.dom.createDom('button',{'class':'class'}, "<");
+        var btnNext = goog.dom.createDom('button',{'class':'class'}, ">");
+        var btns = goog.dom.createDom('p',undefined,btnPrev,btnNext);
+        btnPrev.iditem = --id;
+        btnNext.iditem = ++id;
+        goog.events.listen(btnPrev, goog.events.EventType.CLICK,listenerPrevPart);
+        goog.events.listen(btnNext, goog.events.EventType.CLICK,listenerNextPart);
+        var navButtons = new goog.ui.Control(btns);
+        
+
+        sendEnquiryForm.setAllowTextSelection(true); //recursively ??
+        var partInfo = new goog.ui.Control();
+        partInfo.addChild(images,true);
+        partInfo.addChild(info,true);
+        partInfo.addChild(sendEnquiryForm,true);
+        partInfo.addChild(navButtons,true);
+
+        partInfo.setAllowTextSelection(true);
+        dialogComponent.addChild(partInfo,true);
+
+        var dialog1 = new goog.ui.Dialog();
+        dialog1.setEscapeToCancel(true);
+        dialog1.setHasTitleCloseButton(true);
+        //dialog1.setAutoHide(true);
+        dialog1.setDraggable(false);
+
         dialog1.addChild(dialogComponent,true);
         dialog1.setDisposeOnHide(true);
         dialog1.setButtonSet(goog.ui.Dialog.ButtonSet.CANCEL);
@@ -374,7 +617,8 @@ autoService.catalog.buildPartsTypeAll = function(jsonobj, partType){
                 goog.dom.createDom('span','latest-winners-details',jsonobj[i].model),
                 goog.dom.createDom('span','latest-winners-details',jsonobj[i].price)
             );
-        goog.events.listen(block, goog.events.EventType.CLICK,listener);
+        block.iditem = i;
+        goog.events.listen(block, goog.events.EventType.CLICK,listenerCatalog);
         var blockControl =  new goog.ui.Control(block);
         component.addChild(blockControl,true);
     }

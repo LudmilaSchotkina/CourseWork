@@ -1,0 +1,40 @@
+.hot-bids{
+  width: 440px;
+  height: 340px;
+  font-size: 8pt;
+  /* margin: 2px; */
+  padding: 20px;
+  border: 3px solid gray;
+}
+.hot-bids-block{
+  width: 300px;
+  padding:2px;
+  margin:2px;
+  border: 1px solid gray;
+}
+
+
+.latest-winners{
+  width: 440px;
+  height: 100px;
+  font-size: 8pt;
+  padding: 20px;
+  //border: 3px solid gray;
+}
+
+.won-lot{
+  width: 100px;
+  height: 90px;
+  display: inline-block;
+  margin: 10px;
+  padding: 15px;
+  border: 1px solid gray;
+}
+.latest-winners-img {
+  width: 96px;
+  margin: 1px;
+}
+.latest-winners-details{
+  padding:2px;
+  margin:2px;
+}

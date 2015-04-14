@@ -110,6 +110,170 @@ footer{
   background-color: rgb(0, 45, 66);
 }
 
+
+
+footer{
+   margin-bottom: -100px;
+   height: 100px;
+}
+a {
+    color: #0c65a5;
+    text-decoration: none;
+}
+a:hover {
+    color: #44a1c7;
+    text-decoration:underline;
+}
+.menu-element {
+    color: #0c65a5;
+    text-decoration: none;
+}
+.menu-element:hover {
+    color: #44a1c7;
+    text-decoration: none;
+}
+table {
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+
+.table {
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 20px;
+}
+
+.table > thead > tr > th,
+.table > tbody > tr > th,
+.table > tfoot > tr > th,
+.table > thead > tr > td,
+.table > tbody > tr > td,
+.table > tfoot > tr > td {
+  padding: 8px;
+  line-height: 1.42857143;
+  text-align:center; 
+  vertical-align:middle;
+  border-top: 1px solid #ddd;
+}
+.table > thead > tr > th {
+  text-align:center; 
+  vertical-align:middle;
+  border-bottom: 2px solid #ddd;
+}
+.table-row {
+    padding: 0px 40px;
+}
+
+.content{
+	width: 900px;
+	margin: 0 auto;
+  min-height:100%;
+}
+
+.container{
+    float: left;
+    width: 900px;
+    margin: 0px auto;
+    background-image: url("../images/bg-light.png");
+    min-height:100%;
+    padding-bottom: 20px;
+    
+    border-width: 0;
+    -moz-box-shadow: 0px 0px 30px rgba(255, 0, 0, 0.5);
+    -webkit-box-shadow: 0px 0px 30px rgba(255, 0, 0, 0.5);
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+    //border-left: 1px solid #000;
+    //border-right: 1px solid #000;
+    position: relative;
+    z-index: 1;
+}
+
+
+.carousel {
+    width: 100%;
+    height: 250px;
+}
+.main-block {
+  float: left;
+  margin-left: 50px;
+  padding-right: 10px;
+  width: 800px;
+}
+.main-block-row {
+  display: inline-block;
+  background: white;
+  width: 700px;
+  padding: 15px 60px;
+  margin: 10px auto;
+  border: 1px solid #918F8F;
+  border-radius: 2px;
+  box-shadow: 2px 2px 1px #CCCCCC;
+}
+.left-block {
+  float: left;
+  
+  width: 240px;
+  padding-left: 10px;
+  //margin: 20px 20px;
+  //padding: 10px 5px;
+}
+.right-block {
+  float: left;
+  margin-left: 50px;
+  padding-right: 10px;
+  width: 590px;
+}
+
+.left-block-row {
+  display: inline-block;
+  background: white;
+  //border: 2px solid black;
+  //border-radius: 4px;
+  width: 220px;
+  //margin: 10px 5px;
+  padding: 10px 10px;
+}
+.right-block-row {
+  display: inline-block;
+  background: white;
+  width: 570px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+form{
+    width:300px;
+    margin:0px 15px;
+}
+.search {
+    margin:3px; 
+    //background: url('../images/search.png') no-repeat 32px 32px;
+}
+
+
+.about-container{
+  width: 800px;
+  min-height: 400px;
+  padding: 10px;
+}
+.about-container > h1{
+  margin: 10px
+}
+.about-container > img{
+  width: 300px;
+  margin: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
 /* Demo styles for goog.ui.Container */
 .goog-menubar {
   
@@ -200,511 +364,3 @@ footer{
   border: none;
 }
 
-
-
-footer{
-   margin-bottom: -100px;
-   height: 100px;
-}
-a {
-    color: #0c65a5;
-    text-decoration: none;
-}
-a:hover {
-    color: #44a1c7;
-    text-decoration:underline;
-}
-.menu-element {
-    color: #0c65a5;
-    text-decoration: none;
-}
-.menu-element:hover {
-    color: #44a1c7;
-    text-decoration: none;
-}
-table {
-  border-spacing: 0;
-  border-collapse: collapse;
-
-
-}
-.table {
-  width: 100%;
-  max-width: 100%;
-  margin-bottom: 20px;
-
-
-}
-.table > thead > tr > th,
-.table > tbody > tr > th,
-.table > tfoot > tr > th,
-.table > thead > tr > td,
-.table > tbody > tr > td,
-.table > tfoot > tr > td {
-  padding: 8px;
-  line-height: 1.42857143;
-  text-align:center; 
-  vertical-align:middle;
-  border-top: 1px solid #ddd;
-}
-.table > thead > tr > th {
-  text-align:center; 
-  vertical-align:middle;
-  border-bottom: 2px solid #ddd;
-}
-.table-row {
-    padding: 0px 40px;
-}
-
-.button-more {
-  text-align:center; 
-  vertical-align:middle;
-  border-radius: 3px;
-  padding: 3px;
-  margin: 5px 10px;
-}
-.modal-dialog-bg {
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  background-color: #1F1F1F;
-  z-index: 1;
-}
-
-.modal-dialog {
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  width: 300px;
-  background-color: #AAF;
-  border: 2px solid #99c0ff;
-}
-
-.modal-dialog-title {
-  position:relative;
-  background: #C3D9FF;
-  padding: 4px;
-  font: bold 11px verdana;
-  cursor: default;
-}
-
-.modal-dialog-content {
-  background: #E8EEF7;
-  padding: 12px 18px 12px 18px;  font: normal 12px verdana;
-  font: normal 12px verdana;
-}
-
-.modal-dialog-userInput {
-  font: normal 12px verdana;
-  width: 90%;
-}
-
-.modal-dialog-buttons {
-  background: #E8EEF7;
-  padding: 4px;
-  font: normal 12px verdana;
-  text-align: right;
-}
-
-.modal-dialog-buttons button {
-  margin: 5px;
-}
-
-
-
-
-
-
-.table-image {
-    height: 32px; 
-}
-.popup {
-    background-color:#e0ecff;
-    color:black;
-    //visibility:hidden;
-    width:400px;
-    position: absolute;
-    margin: 50px auto;
-    padding: 10px 10px;
-    //opacity: 0.4;
-    border: 2px solid gray;
-    z-index: 1;
-}
-
-.info-block {
-    border: 1px solid gray;
-    width: 200px;
-    margin: 10px 10px;
-    padding:5px 5px;
-}
-.info-bet {
-    border: 2px solid gray;
-    width: 200px;
-    margin: 10px 10px;
-    padding:15px 15px;
-}
-.info-bet-input {
-  //height: 10px;
-  padding: 2px 5px;
-  margin: 1px 10px;
-  font-size: 8pt;
-}
-.info-image {
-    width:300px;
-}
-.info-div-pic {
-  border: none;
-  background-color: gray;
-  width: auto;
-  padding: 10px;
-  margin: 5px auto;
-}
-.info-bet {
-    float: left;
-    //width: 180px;
-    margin: 10px auto;
-}
-.info-lastbet {
-    float: left;
-    //width: 180px;
-    margin: 10px 5px;
-    border: 2px solid gray;
-}
-.elem{
-	width: 500px;
-	height: 220px;
-}
-
-.content{
-	width: 900px;
-	margin: 0 auto;
-  min-height:100%;
-}
-
-.container{
-    float: left;
-    width: 900px;
-    margin: 0px auto;
-    background-image: url("../images/bg-light.png");
-    min-height:100%;
-    padding-bottom: 20px;
-    
-    border-width: 0;
-    -moz-box-shadow: 0px 0px 30px rgba(255, 0, 0, 0.5);
-    -webkit-box-shadow: 0px 0px 30px rgba(255, 0, 0, 0.5);
-    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
-    //border-left: 1px solid #000;
-    //border-right: 1px solid #000;
-    position: relative;
-    z-index: 1;
-}
-
-
-.carousel {
-    width: 100%;
-    height: 250px;
-}
-.main-block {
-  float: left;
-  margin-left: 50px;
-  padding-right: 10px;
-  width: 800px;
-}
-.main-block-row {
-  display: inline-block;
-  background: white;
-  width: 700px;
-  padding: 15px 60px;
-  margin: 10px auto;
-  border: 1px solid #918F8F;
-  border-radius: 2px;
-  box-shadow: 2px 2px 1px #CCCCCC;
-}
-.left-block {
-  float: left;
-  
-  width: 240px;
-  padding-left: 10px;
-  //margin: 20px 20px;
-  //padding: 10px 5px;
-}
-.right-block {
-  float: left;
-  margin-left: 50px;
-  padding-right: 10px;
-  width: 590px;
-}
-
-.left-block-row {
-  display: inline-block;
-  background: white;
-  //border: 2px solid black;
-  //border-radius: 4px;
-  width: 220px;
-  //margin: 10px 5px;
-  padding: 10px 10px;
-}
-.right-block-row {
-  display: inline-block;
-  background: white;
-  width: 570px;
-  padding: 10px;
-  margin-bottom: 10px;
-}
-form{
-    width:300px;
-    margin:0px 15px;
-}
-.search {
-    margin:3px; 
-    //background: url('../images/search.png') no-repeat 32px 32px;
-}
-
-
-
-.modal-dialog {
-  background: #FFF;
-  //border: 1px solid #3a5774;
-  color: #000;
-  //padding: 4px;
-  width: 600px;
-  
-  margin: 0 auto;
-  position: absolute;
-  z-index: 1;
-  padding-bottom: 10px;
-}
-/*
-.modal-dialog a,
-.modal-dialog a:link,
-.modal-dialog a:visited  {
-  color: #06c;
-  cursor: pointer;
-}
-*/
-
-.modal-dialog-title {
-  background: #e0edfe;
-  color: #000;
-  //cursor: pointer;
-  font-size: 14pt;
-  //height: 50px;
-  font-weight: bold;
-
-  /* Add padding on the right to ensure the close button has room. */
-  padding: 8px 31px 8px 8px;
-
-  //position: relative;
-  //_zoom: 1; /* Ensures proper width in IE6 RTL. */
-}
-
-.modal-dialog-title-close {
-  /* Client apps may override the URL at which they serve the sprite. */
-  background: gray url(/images/search.png) no-repeat -528px 0;
-  //#e0edfe
-  cursor: default;
-  height: 15px;
-  position: absolute;
-  right: 10px;
-  top: 8px;
-  width: 15px;
-  vertical-align: middle;
-}
-
-.modal-dialog-buttons,
-.modal-dialog-content {
-  background-color: #fff;
-  padding: 8px;
-}
-
-.goog-buttonset-default {
-  font-weight: bold;
-}
-
-
-
-
-
-
-
-
-
-
-
-.car-parts-menu{
-    float: left;
-    padding: 5px 15px;
-    border: 1px solid gray;
-    border-radius: 4px;
-    background-color: #B5BBF3;
-    margin-right: 5px;
-}
-
-
-/* page catalog.html */
-.catalog {
-  width: 800px;
-  margin: 0px auto;
-  margin-bottom: -20px;
-}
-.all-cars-for-parts {
-  width: 600px;
-  height: 100px;
-  //color: red;
-  margin: 0 auto;
-  float: left;
-  border: green 2px solid;
-}
-.car-list{
-  //width: 100%;
-  height: 300px;
-  background: white;
-  padding: 5px;
-
-}
-.catalog-header {
-  background-color: rgb(0,111,161);
-  border-top-right-radius: 5px;
-  border-top-left-radius: 5px;
-  color: white;
-  padding:10px 50px;
-  margin-top: 10px;
-  margin-bottom: 0px;
-  height: 20px;
-  color: #FFFFFF;
-  font-size: 16px;
-  font-weight: bold;
-  text-shadow: 1px 1px 1px #000000;
-}
-
-.car-logo {
-  float: left;
-  width: 60px;
-  height: 30px;
-  margin: -8px 0px;
-  margin-left: 10px;
-}
-.div-brand-models{
-  //width: 780px;
-  border: 1px solid red;
-  cursor: pointer;
-  margin: 2px 0px;
-  padding: 10px 0px;
-}
-
-.div-brand {
-  //width: 780px;
-  border: 1px solid gray;
-  border-radius: 3px;
-  cursor: pointer;
-  margin: 2px 0px;
-  padding: 10px 0px;
-}
-
-.zippy-models {
-  //width: 780px;
-  border: 1px solid gray;
-  border-radius: 3px;
-  cursor: default;
-  margin: 0px 0px;
-  padding: 10px 0px;
-}
-.model-zippy{
-    padding: 3px 5px;
-    margin-left: 20px;
-}
-
-.nav-menu {
-  padding: 10px 0px;
-  margin: 0px 0px;
-}
-
-.car-parts {
-  background: #fff;
-  //margin: 0px 140px;
-  padding: 10px 0px;
-  width: 800px;
-  //height: 200px;
-}
-
-
-
-
-.latest-winners{
-  width: 440px;
-  height: 100px;
-  font-size: 8pt;
-  padding: 20px;
-  //border: 3px solid gray;
-}
-
-.won-lot{
-  width: 100px;
-  height: 90px;
-  display: inline-block;
-  margin: 10px;
-  padding: 15px;
-  border: 1px solid gray;
-}
-.latest-winners-img {
-  width: 96px;
-  margin: 1px;
-}
-.latest-winners-details{
-  padding:2px;
-  margin:2px;
-}
-
-.hot-bids{
-  width: 440px;
-  height: 340px;
-  font-size: 8pt;
-  /* margin: 2px; */
-  padding: 20px;
-  border: 3px solid gray;
-}
-.hot-bids-block{
-  width: 300px;
-  padding:2px;
-  margin:2px;
-  border: 1px solid gray;
-}
-
-.car-part-item{
-  width: 540px;
-  height: 70px;
-  display: inline-block;
-  margin: 5px;
-  padding: 10px;
-  //border: 1px solid gray;
-  background: rgba(223, 223, 223, 0.58);
-  border-width: 0; 
-  -moz-box-shadow: 0px 0px 30px rgba(37, 37, 37, 1);
-  -webkit-box-shadow: 0px 0px 30px rgba(37, 37, 37, 1);
-  box-shadow: 0px 0px 1px rgba(37, 37, 37, 1);
-}
-.car-part-item:hover {
-  background: rgba(75,172,207,0.5);
-  -moz-box-shadow: 0px 0px 30px rgba(255, 0, 0, 0.5);
-  -webkit-box-shadow: 0px 0px 30px rgba(255, 0, 0, 0.5);
-  box-shadow: 0px 0px 2px rgba(56, 121, 207, 1);
-}
-.car-part-item:active {
-  background: rgba(75,172,207,0.5);
-  -moz-box-shadow: 0px 0px 30px rgba(255, 0, 0, 0.5);
-  -webkit-box-shadow: 0px 0px 30px rgba(255, 0, 0, 0.5);
-  box-shadow: 0px 0px 1px 2px rgba(56, 121, 207, 1);
-}
-
-.about-container{
-  width: 800px;
-  min-height: 400px;
-  padding: 10px;
-}
-.about-container > h1{
-  margin: 10px
-}
-.about-container > img{
-  width: 300px;
-  margin: 10px;
-}
