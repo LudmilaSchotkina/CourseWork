@@ -22,10 +22,87 @@
 						"time_left": "3"
 					}
 				]	
+			},
+			{
+				"id":"555",
+				"lot":"A888C",
+				"bid":[
+					{
+						"username": "user1",
+						"rate": "4000",
+						"time_left": "11"
+					}
+				]	
+			},
+			{
+				"id":"556",
+				"lot":"A578B",
+				"bid":[
+					{
+						"username": "user2",
+						"rate": "5000",
+						"time_left": "3"
+					}
+				]	
+			},
+			{
+				"id":"555",
+				"lot":"A888C",
+				"bid":[
+					{
+						"username": "user1",
+						"rate": "4000",
+						"time_left": "11"
+					}
+				]	
+			},
+			{
+				"id":"556",
+				"lot":"A578B",
+				"bid":[
+					{
+						"username": "user2",
+						"rate": "5000",
+						"time_left": "3"
+					}
+				]	
 			}
 		],
 		"bmw":[
 			{
+				"id":"557",
+				"lot":"B422X",
+				"bid":[
+					{
+						"username": "user1",
+						"rate": "9000",
+						"time_left": "8"
+					}
+				]	
+			},
+			{
+				"id":"557",
+				"lot":"B422X",
+				"bid":[
+					{
+						"username": "user1",
+						"rate": "9000",
+						"time_left": "8"
+					}
+				]	
+			},
+			{
+				"id":"557",
+				"lot":"B422X",
+				"bid":[
+					{
+						"username": "user1",
+						"rate": "9000",
+						"time_left": "8"
+					}
+				]	
+			}
+			,{
 				"id":"557",
 				"lot":"B422X",
 				"bid":[

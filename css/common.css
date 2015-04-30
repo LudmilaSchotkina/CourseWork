@@ -193,22 +193,7 @@ table {
     width: 100%;
     height: 250px;
 }
-.main-block {
-  float: left;
-  margin-left: 50px;
-  padding-right: 10px;
-  width: 800px;
-}
-.main-block-row {
-  display: inline-block;
-  background: white;
-  width: 700px;
-  padding: 15px 60px;
-  margin: 10px auto;
-  border: 1px solid #918F8F;
-  border-radius: 2px;
-  box-shadow: 2px 2px 1px #CCCCCC;
-}
+
 .left-block {
   float: left;
   

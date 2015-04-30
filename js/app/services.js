@@ -1,10 +1,25 @@
 var auctionAppServices = angular.module('auctionAppServices', ['ngResource']);
 
 auctionAppServices.
-	factory('CarBrand', function($resource) {
-		return $resource('/api/auction-auto/:carBrandId.json', {}, {});
+
+	factory('AvailableAutosAuction', function($resource) {
+		return $resource('/api/auction-auto/all-autos.json', {}, {query: {method:'GET', isArray:true}});
+	}).
+	factory('AllModelsAuction', function($resource) {
+		return $resource('/api/auction-auto/all-models.json', {}, {query: {method:'GET', isArray:true}});
 	}).
 
+	factory('CarBrand', function($resource) {
+		return $resource('/api/auction-auto/:carBrandId/1.json', {}, {query: {method:'GET', isArray:true}});
+	}).
+	factory('Lot', function($resource) {
+		return $resource('/api/auction-auto/all-models.json', {lotId:'lotid'}, {query: {method:'GET', isArray:true}});
+	}).
+	/*
+	factory('CarBrandPage', function($resource) {
+		return $resource('/api/auction-auto/:carBrandId/:pageId.json', {}, {query: {method:'GET', isArray:true}});
+	}).
+*/
 
 	factory('Catalog', function($resource) {
 		return $resource('/api/catalog-car-parts/all-autos.json', {}, {

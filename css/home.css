@@ -1,40 +1,144 @@
-.hot-bids{
-  width: 440px;
-  height: 340px;
-  font-size: 8pt;
-  /* margin: 2px; */
-  padding: 20px;
-  border: 3px solid gray;
+.main-block {
+  float: left;
+  margin-left: 50px;
+  padding-right: 10px;
+  width: 800px;
 }
-.hot-bids-block{
-  width: 300px;
-  padding:2px;
-  margin:2px;
-  border: 1px solid gray;
+.main-block-row {
+  display: inline-block;
+  background: white;
+  width: 700px;
+  padding: 15px 60px;
+  margin: 10px auto;
+  border: 1px solid #918F8F;
+  border-radius: 2px;
+  box-shadow: 2px 2px 1px #CCCCCC;
 }
-
 
 .latest-winners{
-  width: 440px;
-  height: 100px;
+  width: 700px;
+  //border: 1px rgb(200, 198, 198) solid;
+  //box-shadow: 0px 0px 3px rgba(80, 82, 86, 0.53);
+  height: 150px;
   font-size: 8pt;
-  padding: 20px;
-  //border: 3px solid gray;
+  padding: 0px;
+  margin: 0px;
+  float: left;
+  //background: rgba(75, 172, 207, 0.06);
+  border: 1px solid #999;
+  background-color: #eee;
+  box-shadow: 2px 2px 1px #CCCCCC;
+  border-radius: 2px;
 }
-
+.won-lot-container{
+  position: absolute;
+  float: left;
+}
 .won-lot{
   width: 100px;
-  height: 90px;
-  display: inline-block;
-  margin: 10px;
+  position: absolute;
   padding: 15px;
-  border: 1px solid gray;
+  //border: 1px solid rgba(0, 94, 120, 0.5);
+  border: 1px solid #999;
+  border-radius: 2px;
+  //box-shadow: 0px 0px 2px rgba(56, 121, 207, 1);
+  //box-shadow: 0px 0px 3px rgba(80, 82, 86, 0.53);
+  box-shadow: 2px 2px 1px #CCCCCC;
+  float: left;
+  background: #FFF;
 }
+.won-lot:hover .featured-lot:hover {
+  //box-shadow: 0px 0px 2px rgba(56, 121, 207, 1);
+  box-shadow: 1px 2px 3px rgba(56, 76, 103, 1);
+}
+.nav-scroll {
+  width: 10px;
+  background: gray;
+  padding: 69px 5px;
+  color: gray;
+  background: rgba(176, 176, 176, 0.35);
+  position: absolute;
+  right: 40px;
+  vertical-align: middle;
+  margin-top: 0px;
+}
+.nav-scroll:hover {
+  color: black;
+  background: rgba(176, 176, 176, 0.55);
+}
+
 .latest-winners-img {
   width: 96px;
+  height: 50px;
   margin: 1px;
+  border:1px solid black;
 }
 .latest-winners-details{
   padding:2px;
-  margin:2px;
+  margin: 0px 5px;
+}
+
+.latest-winners-price{
+  padding:2px;
+  color: rgb(0, 94, 120);
+  font-size: 12pt;
+  font-weight: 800;
+  margin: 0px 25px;
+}
+.latest-winners-details > a > span{
+  margin: 0px 0px;
+}
+.block {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  margin: 20px;
+  padding: 10px;
+  background-color: blue;
+}
+
+
+
+.featured-lot-container{
+width: 696px;
+  border: 1px rgb(200, 198, 198) solid;
+  //box-shadow: 0px 0px 3px rgba(80, 82, 86, 0.53);
+  box-shadow: 2px 2px 1px #CCCCCC;
+  height: 150px;
+  font-size: 8pt;
+  padding: 0px;
+  margin: 0px auto;
+  float: left;
+  border-radius: 2px;
+  background-color: #eee;
+}
+.featured-lots {
+  
+}
+.featured-lot{
+  width: 100px;
+  display: inline-block;
+  padding: 15px;
+  border-radius: 5px;
+  float: left;
+  border: 1px solid #999;
+  box-shadow: 2px 2px 1px #CCCCCC;
+  background: #FFF;
+  margin: 10px;
+}
+.featured-lot:hover {
+  //box-shadow: 0px 0px 2px rgba(56, 121, 207, 1);
+  box-shadow: 1px 2px 3px rgba(56, 76, 103, 1);
+}
+
+.featured-lot-header{
+  background: rgb(0,111,161);
+  margin: -15px;
+  margin-bottom: 5px;
+  padding: 6px 30px;
+  font-weight: 800;
+  font-size: 12pt;
+  color: #FFF;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
 }

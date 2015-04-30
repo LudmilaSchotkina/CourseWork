@@ -60,6 +60,7 @@ autoService.common.listOfCars = function(jsonobj){
     var tbody = goog.dom.createDom('tbody',undefined);
     var listener = function(e) {
         location.href = "#/auction/"+e.target.idlink;
+       //alert(location.href);
     };
 
     var allLink = goog.dom.createDom('a',undefined, "All");

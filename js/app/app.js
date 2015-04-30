@@ -12,22 +12,33 @@ auctionApp.config(['$routeProvider', '$locationProvider',
         controller: 'MainPageCtrl'
       }).
       when('/auction/all', {
-        templateUrl: '/partials/auction.html',
+        templateUrl: '/partials/auction/auction.html',
         controller: 'AuctionCtrl'
       }).
       when('/auction/:carBrandId', {
-        templateUrl: 'partials/auction.html',
+        templateUrl: 'partials/auction/auction.html',
         controller: 'CarBrandAuctionCtrl'
       }).
+      when('/auction/lots/:lotId', {
+        templateUrl: 'partials/auction/lot.html',
+        controller: 'LotCtrl'
+      }).
+      /*
+      when('/auction/:carBrandId/:pageId', {
+        templateUrl: 'partials/auction.html',
+        controller: 'CarBrandPageAuctionCtrl'
+      }).
+*/
+      /*
       when('/auction/:carBrandId/:modelId', {
         templateUrl: 'partials/autos-list.html',
         controller: 'ModelAuctionCtrl'
-      }).
+      }).*/
 
 
       
       when('/catalog', {                        //list of all autos with zipped models
-        templateUrl: '/partials/catalog.html',
+        templateUrl: '/partials/catalog/catalog.html',
         controller: 'CatalogCtrl'
       }).
       /*

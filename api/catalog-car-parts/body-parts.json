@@ -5,10 +5,12 @@
 		"brand": "audi",
 		"model": "A4",
 		"modification":"",
+		"body_type": "sedan",
 		"year": "2005",
 		"title": "door",		
 		"price":"67",
-		"status": "available"
+		"status": "available",
+		"defect":"none"
 	},
 	{
 		"id": "2",
@@ -16,10 +18,12 @@
 		"brand": "audi",
 		"model": "A5",
 		"modification":"",
+		"body_type": "sedan",
 		"year": "2000",
 		"title": "roof",		
 		"price":"10",
-		"status": "sold"
+		"status": "sold",
+		"defect":"none"
 	},
 	{
 		"id": "3",
@@ -27,10 +31,12 @@
 		"brand": "audi",
 		"model": "A4",
 		"modification":"",
+		"body_type": "sedan",
 		"year": "2013",
 		"title": "roof",		
 		"price":"80",
-		"status": "available"
+		"status": "available",
+		"defect":"none"
 	},
 		{
 		"id": "4",
@@ -38,10 +44,12 @@
 		"brand": "audi",
 		"model": "A4",
 		"modification":"",
+		"body_type": "sedan",
 		"year": "2005",
 		"title": "door",		
 		"price":"67",
-		"status": "available"
+		"status": "available",
+		"defect":"none"
 	},
 	{
 		"id": "5",
@@ -49,10 +57,12 @@
 		"brand": "audi",
 		"model": "A5",
 		"modification":"",
+		"body_type": "sedan",
 		"year": "2000",
 		"title": "roof",		
 		"price":"10",
-		"status": "sold"
+		"status": "sold",
+		"defect":"none"
 	},
 	{
 		"id": "6",
@@ -63,6 +73,7 @@
 		"year": "2013",
 		"title": "roof",		
 		"price":"80",
-		"status": "available"
+		"status": "available",
+		"defect":"none"
 	}
 ]
