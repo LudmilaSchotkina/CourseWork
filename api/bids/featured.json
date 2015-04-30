@@ -1,0 +1,150 @@
+[
+	{
+		"audi":[
+			{
+				"id":"515",
+				"lot":"A234D",
+				"img": "/images/audi/1.jpg",
+				"model": "A61",
+				"modification": "",
+				"year": "2013",
+				"parameters":[
+					{
+						"username": "user1",
+						"rate": "3400"
+					}
+				]	
+			},
+			{
+				"id":"515",
+				"lot":"A234D",
+				"img": "/images/audi/1.jpg",
+				"model": "A62",
+				"modification": "",
+				"year": "2013",
+				"parameters":[
+					{
+						"username": "user1",
+						"rate": "3400"
+					}
+				]	
+			},
+			{
+				"id":"515",
+				"lot":"A234D",
+				"img": "/images/audi/1.jpg",
+				"model": "A63",
+				"modification": "",
+				"year": "2013",
+				"parameters":[
+					{
+						"username": "user1",
+						"rate": "3400"
+					}
+				]	
+			}
+		],
+		"bmw":[
+			{
+				"id":"516",
+				"lot":"B234N",
+				"img": "/images/bmw/BMW_3.jpg",
+				"model": "4",
+				"modification": "",
+				"year": "2013",	
+				"parameters":[
+					{
+						"username": "user1",
+						"rate": "7000"
+					}
+				]	
+			},
+			{
+				"id":"516",
+				"lot":"B234N",
+				"img": "/images/bmw/BMW_3.jpg",
+				"model": "5",
+				"modification": "",
+				"year": "2013",	
+				"parameters":[
+					{
+						"username": "user1",
+						"rate": "7000"
+					}
+				]	
+			},
+			{
+				"id":"516",
+				"lot":"B234N",
+				"img": "/images/bmw/BMW_3.jpg",
+				"model": "6",
+				"modification": "",
+				"year": "2013",	
+				"parameters":[
+					{
+						"username": "user1",
+						"rate": "7000"
+					}
+				]	
+			},
+			{
+				"id":"516",
+				"lot":"B234N",
+				"img": "/images/bmw/BMW_3.jpg",
+				"model": "7",
+				"modification": "",
+				"year": "2013",	
+				"parameters":[
+					{
+						"username": "user1",
+						"rate": "7000"
+					}
+				]	
+			}
+		],
+		"mazda":[
+			{
+				"id":"515",
+				"lot":"dfdd",
+				"img": "/images/audi/1.jpg",
+				"model": "121",
+				"modification": "",
+				"year": "2013",
+				"parameters":[
+					{
+						"username": "user1",
+						"rate": "3400"
+					}
+				]	
+			},
+			{
+				"id":"515",
+				"lot":"d3v3fv",
+				"img": "/images/audi/1.jpg",
+				"model": "sdg",
+				"modification": "",
+				"year": "2013",
+				"parameters":[
+					{
+						"username": "user1",
+						"rate": "3400"
+					}
+				]	
+			},
+			{
+				"id":"515",
+				"lot":"fbfd11",
+				"img": "/images/audi/1.jpg",
+				"model": "s1",
+				"modification": "",
+				"year": "2013",
+				"parameters":[
+					{
+						"username": "user1",
+						"rate": "3400"
+					}
+				]	
+			}
+		],
+	}
+]

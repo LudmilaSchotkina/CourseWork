@@ -1,0 +1,173 @@
+[
+	{
+		"queryType": "currentAuctionsByModel",
+		"apiVersion": "1.0",
+		"page": {"current": "1", "total": "2"},
+		"params": {
+		     "sort": "aphabeticaly",
+		     "groupBy": "model"
+		},
+		"models": [
+			{
+				"carBrand": "audi",
+			    "model": "6",
+			    "lot":"B231T",
+			    "price": "2333",
+			    "status": "available",
+			    "timeToEnd": {"value": "2", "measure":"days"},
+			    "exactCloseDate": "2015-05-12T12:22",
+			    "details" : {
+			    	"img": "/images/bmw/BMW_6.jpg",
+					"modification": "",
+					"body_type": "sedan",
+					"year": "2013",		
+					"engine_type": "petrol",
+					"volume": "3.3",
+					"mileage": "210000",
+					"transmission": "automatic",
+					"status": "available"
+			    },
+			    "bids" : {
+			    	"data": [
+				     	{ 
+				     		"id":"1231231",
+				            "author":"ivanov",
+				            "creationTime":"2015-05-01T12:22",
+				            "price":"124444"
+				        },
+				        { 
+				        	"id":"1231231",
+				            "author":"ivanov",
+				            "creationTime":"2015-05-01T12:22",
+				            "price":"124444"
+				        }
+				    ],
+			        "pages": "12",
+			        "sorted": "byCreationTime"
+			    }
+			},
+			{
+				"carBrand": "audi",
+				"model": "3",
+				"lot":"B422X",
+				"price": "8000",
+				"status": "available",
+				"timeToEnd": {"value": "2", "measure":"days"},
+				"exactCloseDate": "2015-05-12T12:22",
+				"details" : {
+					"img": "/images/bmw/BMW_3.jpg",
+					"modification": "",
+					"body_type": "sedan",
+					"year": "2013",		
+					"engine_type": "petrol",
+					"volume": "3.3",
+					"mileage": "210000",
+					"transmission": "automatic"
+				},
+				"bids" : {
+					"data": [
+						{ 
+							"id":"1231231",
+							"author":"ivanov",
+							"creationTime":"2015-05-01T12:22",
+							"price":"124444"
+						},
+						{ 
+							"id":"1231231",
+							"author":"ivanov",
+							"creationTime":"2015-05-01T12:22",
+							"price":"124444"
+						}
+					],
+					"pages": "12",
+					"sorted": "byCreationTime"
+				}
+			}
+		]
+	},
+	{
+		"queryType": "currentAuctionsByModel",
+		"apiVersion": "1.0",
+		"page": {"current": "2", "total": "2"},
+		"params": {
+		     "sort": "aphabeticaly",
+		     "groupBy": "model"
+		},
+		"models": [
+			{
+				"carBrand": "audi",
+			    "model": "3",
+			    "lot": "B438C",
+			    "price": "77000",
+			    "status": "available",
+			    "timeToEnd": {"value": "2", "measure":"days"},
+			    "exactCloseDate": "2015-05-12T12:22",
+			    "details" : {
+			    	"img": "/images/bmw/BMW_3.jpg",
+					"modification": "",
+					"body_type": "sedan",
+					"year": "2013",		
+					"engine_type": "petrol",
+					"volume": "3.3",
+					"mileage": "2900",
+					"transmission": "automatic"
+			    },
+			    "bids" : {
+			    	"data": [
+				     	{ 
+				     		"id":"1231231",
+				            "author":"ivanov",
+				            "creationTime":"2015-05-01T12:22",
+				            "price":"124444"
+				        },
+				        { 
+				        	"id":"1231231",
+				            "author":"ivanov",
+				            "creationTime":"2015-05-01T12:22",
+				            "price":"124444"
+				        }
+				    ],
+			        "pages": "12",
+			        "sorted": "byCreationTime"
+			    }
+			},
+			{
+				"carBrand": "audi",
+				"model": "6",
+				"lot": "B231T",
+				"price": "2333",
+				"status": "available",
+				"timeToEnd": {"value": "2", "measure":"days"},
+				"exactCloseDate": "2015-05-12T12:22",
+				"details" : {
+					"img": "/images/bmw/BMW_6.jpg",
+					"modification": "",
+					"body_type": "sedan",
+					"year": "2013",		
+					"engine_type": "petrol",
+					"volume": "3.3",
+					"mileage": "210000",
+					"transmission": "automatic"
+				},
+				"bids" : {
+					"data": [
+						{ 
+							"id":"1231231",
+							"author":"ivanov",
+							"creationTime":"2015-05-01T12:22",
+							"price":"124444"
+						},
+						{ 
+							"id":"1231231",
+							"author":"ivanov",
+							"creationTime":"2015-05-01T12:22",
+							"price":"124444"
+						}
+					],
+					"pages": "12",
+					"sorted": "byCreationTime"
+				}
+			}
+		]
+	}
+]
