@@ -100,51 +100,77 @@
 						"rate": "7000"
 					}
 				]	
-			}
-		],
-		"mazda":[
+			},
 			{
-				"id":"515",
-				"lot":"dfdd",
-				"img": "/images/audi/1.jpg",
-				"model": "121",
+				"id":"516",
+				"lot":"B234N",
+				"img": "/images/bmw/BMW_3.jpg",
+				"model": "8",
 				"modification": "",
-				"year": "2013",
+				"year": "2013",	
 				"parameters":[
 					{
 						"username": "user1",
-						"rate": "3400"
+						"rate": "7000"
 					}
 				]	
 			},
 			{
-				"id":"515",
-				"lot":"d3v3fv",
-				"img": "/images/audi/1.jpg",
-				"model": "sdg",
+				"id":"516",
+				"lot":"B234N",
+				"img": "/images/bmw/BMW_3.jpg",
+				"model": "9",
 				"modification": "",
-				"year": "2013",
+				"year": "2013",	
 				"parameters":[
 					{
 						"username": "user1",
-						"rate": "3400"
+						"rate": "7000"
 					}
 				]	
 			},
 			{
-				"id":"515",
-				"lot":"fbfd11",
-				"img": "/images/audi/1.jpg",
-				"model": "s1",
+				"id":"516",
+				"lot":"B234N",
+				"img": "/images/bmw/BMW_3.jpg",
+				"model": "10",
 				"modification": "",
-				"year": "2013",
+				"year": "2013",	
 				"parameters":[
 					{
 						"username": "user1",
-						"rate": "3400"
+						"rate": "7000"
+					}
+				]	
+			},
+			{
+				"id":"516",
+				"lot":"B234N",
+				"img": "/images/bmw/BMW_3.jpg",
+				"model": "11",
+				"modification": "",
+				"year": "2013",	
+				"parameters":[
+					{
+						"username": "user1",
+						"rate": "7000"
+					}
+				]	
+			},
+			{
+				"id":"516",
+				"lot":"B234N",
+				"img": "/images/bmw/BMW_3.jpg",
+				"model": "12",
+				"modification": "",
+				"year": "2013",	
+				"parameters":[
+					{
+						"username": "user1",
+						"rate": "7000"
 					}
 				]	
 			}
-		],
+		]
 	}
 ]

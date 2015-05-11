@@ -1,71 +1,88 @@
 [
 	{
-		"audi":[
+		"queryType": "currentAuctionsByModel",
+		"apiVersion": "1.0",
+		"page": {"current": "1", "total": "1"},
+		"params": {
+		     "sort": "alphabetically",
+		     "groupBy": "model"
+		},
+		"models": [
 			{
-				"id": "1",
-				"img": "http://www.avtorinok.ru/news/pics/Audi_A4_pic_24667.jpg",
-				"model": "A4",
-				"modification": "",
-				"body_type": "sedan",
-				"lot":"A888C",
-				"year": "2013",		
-				"engine_type": "petrol",
-				"volume": "3.3",
-				"mileage": "210000",
-				"transmission": "automatic",
-				"price": "3650",
-				"status": "available",
-				"bid":[
-					{
-						"username": "user1",
-						"rate": "4000",
-						"time_left": "11"
-					}
-				]
+				"carBrand": "audi",
+			    "model": "A4",
+			    "lot": "A888C",
+			    "price": "123345",
+			    "status": "available",
+			    "timeToEnd": {"value": "2", "measure":"days"},
+			    "exactCloseDate": "2015-05-12T12:22",
+			    "details" : {
+			    	"img": "http://www.avtorinok.ru/news/pics/Audi_A4_pic_24667.jpg",
+			    	"modification": "",
+					"body_type": "sedan",
+					"lot":"A888C",
+					"year": "2013",		
+					"engine_type": "petrol",
+					"volume": "3.3",
+					"mileage": "210000",
+					"transmission": "automatic"
+			    },
+			    "bids" : {
+			    	"data": [
+				     	{ 
+				     		"id":"1231231",
+				            "author":"ivanov",
+				            "creationTime":"2015-05-01T12:22",
+				            "price":"124444"
+				        },
+				        { 
+				        	"id":"1231231",
+				            "author":"ivanov",
+				            "creationTime":"2015-05-01T12:22",
+				            "price":"124444"
+				        }
+				    ],
+			        "pages": "12",
+			        "sorted": "byCreationTime"
+			    }
 			},
 			{
-				"id": "2",
-				"img": "/images/audi/1.jpg",
+				"carBrand": "audi",
 				"model": "A5",
-				"modification": "",
-				"body_type": "sedan",
-				"lot":"A578B",
-				"year": "2013",		
-				"engine_type": "petrol",
-				"volume": "3.3",
-				"mileage": "1000",
-				"transmission": "automatic",
-				"price": "4650",
+				"lot": "A887C",
+				"price": "3345",
 				"status": "available",
-				"bid":[
-					{
-						"username": "user2",
-						"rate": "5000",
-						"time_left": "3"
-					}
-				]
-			},
-			{
-				"id": "3",
-				"img": "/images/audi/Audi_A6.jpg",
-				"model": "A6",
-				"modification": "",
-				"body_type": "sedan",
-				"lot":"A234D",
-				"year": "2013",		
-				"engine_type": "petrol",
-				"volume": "3.3",
-				"mileage": "210000",
-				"transmission": "automatic",
-				"price": "3330",
-				"status": "won",
-				"bid":[
-					{
-						"username": "user1",
-						"rate": "3400",
-						"time_left": "0"
-					}
-				]
+				"timeToEnd": {"value": "2", "measure":"days"},
+				"exactCloseDate": "2015-05-12T12:22",
+				"details" : {
+					"img": "/images/audi/1.jpg",
+					"modification": "",
+					"body_type": "sedan",
+					"lot":"A578B",
+					"year": "2013",		
+					"engine_type": "petrol",
+					"volume": "3.3",
+					"mileage": "1000",
+					"transmission": "automatic"
+				},
+				"bids" : {
+					"data": [
+						{ 
+							"id":"1231231",
+							"author":"ivanov",
+							"creationTime":"2015-05-01T12:22",
+							"price":"124444"
+						},
+						{ 
+							"id":"1231231",
+							"author":"ivanov",
+							"creationTime":"2015-05-01T12:22",
+							"price":"124444"
+						}
+					],
+					"pages": "12",
+					"sorted": "byCreationTime"
+				}
 			}
 		]
 	}

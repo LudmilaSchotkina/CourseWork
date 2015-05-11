@@ -24,48 +24,46 @@ autoService.bids.buildHotBids = function(url){
     });
 };
 /** @param {function(Element)} listOfHotBids  */
+autoService.bids.featured = function(jsonobj,key,i){
+    var link = '#/auction/lots/'+jsonobj[key][i].lot;
+
+    var blockdom = goog.dom.createDom('div',{'class': 'featured-lot'},
+            goog.dom.createDom('div','featured-lot-header','Featured'),
+            goog.dom.createDom('div',undefined, 
+                goog.dom.createDom('a',{'href':link},
+                    goog.dom.createDom('img',{'class': 'latest-winners-img', 'src': jsonobj[key][i].img})
+                    )
+                ),
+            goog.dom.createDom('div','latest-winners-details',
+                goog.dom.createDom('a',{'href':link},
+                    goog.dom.createDom('span',undefined,jsonobj[key][i].year+' '+key+' '+jsonobj[key][i].model)
+                    )
+                ),
+            goog.dom.createDom('div','latest-winners-price','$'+jsonobj[key][i].parameters[0].rate)
+        );
+    return blockdom;
+}
 autoService.bids.listOfHotBids = function(jsonobj0){
     var jsonobj = jsonobj0[0];
     var domElement = goog.dom.getElement('hot-bids');
     var boxSize = goog.style.getSize(domElement);
 
     var component = new goog.ui.Component();
-    var boxDomContainer = goog.dom.createDom('div', {'class':'featured-lots'});
+    var boxDomContainer = goog.dom.createDom('div', undefined);
 
     var id = 0;
-    var j=0;
-    var domArray = [];
     for (var key in jsonobj) {    
         for(var i in jsonobj[key]){
-            var link = '#/auction/lots/'+jsonobj[key][i].lot;
-            var blockdom = goog.dom.createDom('div',{'class': 'featured-lot'},
-                    goog.dom.createDom('div','featured-lot-header','Featured'),
-                    goog.dom.createDom('div',undefined,
-                        goog.dom.createDom('a',{'href':link},
-                            goog.dom.createDom('img',{'class': 'latest-winners-img', 'src': jsonobj[key][i].img})
-                            )
-                        ),
-                    goog.dom.createDom('div','latest-winners-details',
-                        goog.dom.createDom('a',{'href':link},
-                            goog.dom.createDom('span',undefined,jsonobj[key][i].year+' '+key+' '+jsonobj[key][i].model)
-                            )
-                        ),
-                    goog.dom.createDom('div','latest-winners-price','$'+jsonobj[key][i].parameters[0].rate)
-                );
-            //domArray[j] = blockdom;
-            ++j;
+            var blockdom = autoService.bids.featured(jsonobj,key,i);
             //goog.style.setPosition(blockdom,leftpos,10);
             blockdom.id = id;
             ++id;
-            domArray[j]=blockdom;
-            //var block =  new goog.ui.Control(blockdom);
-            goog.dom.appendChild(boxDomContainer,blockdom);
-            //component.addChild(block,true);            
+            var block =  new goog.ui.Control(blockdom);
+            //goog.dom.appendChild(boxDomContainer,blockdom);
+            component.addChild(block,true);            
         }
     }
-
-    var component = new goog.ui.Control(boxDomContainer);
-
+    //var component = new goog.ui.Control(boxDomContainer);
     component.render(domElement);
 
     var el = goog.dom.getElementsByClass('featured-lot');
@@ -78,8 +76,8 @@ autoService.bids.listOfHotBids = function(jsonobj0){
     //alert(height);
     var tmp = (boxSize.width - width)/2;
     var tmp2 ='margin: 0px '+ tmp+'px;';
- boxDomContainer.style.cssText = tmp2;
-    goog.style.setSize(boxDomContainer, width, height);
+// boxDomContainer.style.cssText = tmp2;
+ //   goog.style.setSize(boxDomContainer, width, height);
     goog.style.setSize(domElement, boxSize.width, height);
 
 }
@@ -111,21 +109,19 @@ autoService.bids.bidsWinners = function(jsonobj0){
     boxDomContainer.height = boxSize.height - 10;
     boxDomContainer.x = boxPosition.x+10;
     boxDomContainer.y = boxPosition.y+5;
-    //goog.style.setSize(boxDomContainer, boxDomContainer.width, boxDomContainer.height);
-    //goog.style.setPosition(boxDomContainer,boxDomContainer.x, boxDomContainer.y);
-
 
     var id = 0;
     for (var key in jsonobj) {    
         for(var i in jsonobj[key]){
+            var link = '#/auction/lots/'+jsonobj[key][i].lot;
             var blockdom = goog.dom.createDom('div',{'class': 'won-lot'},
                     goog.dom.createDom('div',undefined,
-                        goog.dom.createDom('a',{'href':'#'},
+                        goog.dom.createDom('a',{'href': link},
                             goog.dom.createDom('img',{'class': 'latest-winners-img', 'src': jsonobj[key][i].img})
                             )
                         ),
                     goog.dom.createDom('div','latest-winners-details',
-                        goog.dom.createDom('a',{'href':'#'},
+                        goog.dom.createDom('a',{'href': link},
                             goog.dom.createDom('span',undefined,jsonobj[key][i].year+' '+key+' '+jsonobj[key][i].model)
                             )
                         ),
@@ -146,11 +142,7 @@ autoService.bids.bidsWinners = function(jsonobj0){
             blockdom.id = id;
             ++id;
             var block =  new goog.ui.Control(blockdom);
-            //blockdom.style.cssText = 'display: inline-block;';
-            //blockdom.style.cssText = 'visibility: hidden;';
-            
             goog.dom.appendChild(boxDomContainer,blockdom);
-            //component.addChild(block,true);            
         }
     }
 
@@ -164,7 +156,10 @@ autoService.bids.bidsWinners = function(jsonobj0){
         if(el.isVisible!=0)
             ++boxElNumber;
     });
-    boxDomContainer.width = domArray[boxElNumber].x + domArray[boxElNumber].width;
+    
+
+   // boxDomContainer.width = domArray[boxElNumber].x + domArray[boxElNumber].width;
+    boxDomContainer.width = boxSize.width;
     goog.style.setSize(boxDomContainer, boxDomContainer.width, boxDomContainer.height);
     goog.style.setPosition(boxDomContainer,boxDomContainer.x, boxDomContainer.y);
 
@@ -188,40 +183,37 @@ autoService.bids.bidsWinners = function(jsonobj0){
     winScrollComponent.addChild(navRight,true);
 
     winScrollComponent.render(winnersBox);
-
-
-
-
 }
+
 
 function scrollListener(e) {
 
     var winnersBox = goog.dom.getElementByClass('won-lot-container');
     var boxSize = goog.style.getSize(winnersBox);
-    var boxPosition = goog.style.getPosition(winnersBox);
     var wonlot = goog.dom.getElementsByClass('won-lot');
     var boxElNumber = wonlot[0].boxElNumber;
     var startCoordX = wonlot[0].x;
     
     var currEl = 0;
-    var k=0;
-    while(wonlot[k].isVisible!=1){
+    while(wonlot[currEl].isVisible!=1){
         ++currEl;
-        ++k;
     }
 
-    if(e.target.navType == "right"){
-        if(e.target.navType == "right" && wonlot[wonlot.length-1].isVisible==1){} 
-        else {
 
-            for(var i = currEl; i< currEl+boxElNumber-1; ++i){
-                wonlot[i].isVisible = 0;
-                wonlot[i].style.cssText = 'visibility: hidden;';
-            }
+    var totalCurNumber = currEl;
+    var queue  = new goog.fx.AnimationSerialQueue();
+
+    if(e.target.navType == "right"){
+        if(wonlot.length - (currEl+boxElNumber)<boxElNumber && wonlot.length - (currEl+boxElNumber) > 0)
+            totalCurNumber = wonlot.length - (currEl+boxElNumber);
+        else totalCurNumber = boxElNumber-1;
+
+        if(wonlot[wonlot.length-1].isVisible!=1){
+            autoService.bids.changeProperty(wonlot,currEl,totalCurNumber+currEl,0);
           
             var tmp = 0;
             var queue  = new goog.fx.AnimationSerialQueue();
-            for(var i = currEl+boxElNumber-1; i < currEl+boxElNumber-1+boxElNumber; ++i){
+            for(var i = currEl+totalCurNumber; i < currEl+totalCurNumber+boxElNumber; ++i){
                 var newx = startCoordX + 20 + tmp*(wonlot[i].width+60);
                 wonlot[i].style.cssText = 'visibility: visible;';
                 wonlot[i].isVisible = 1;
@@ -230,17 +222,15 @@ function scrollListener(e) {
                 ++tmp;
             }
             queue.play();
-            currEl = currEl+boxElNumber-1;
         }
     }
     else if(e.target.navType == "left"){
-        //alert(boxSize.width);
-        if(e.target.navType == "left" && wonlot[0].isVisible==1){}
-        else {
+        if(currEl < boxElNumber && currEl > 0)
+            totalCurNumber = boxElNumber- 1;
 
-            var queue  = new goog.fx.AnimationSerialQueue();
+        if(wonlot[0].isVisible!=1){
             var tmp=0;
-            for(var i = currEl; i > currEl-boxElNumber; --i){
+            for(var i = totalCurNumber; i > totalCurNumber - boxElNumber; --i){
                 var newx = boxSize.width - 2*wonlot[i].width - tmp*(wonlot[i].width+60);
                 wonlot[i].isVisible = 1;
                 wonlot[i].style.cssText = 'visibility: visible;';
@@ -248,15 +238,18 @@ function scrollListener(e) {
                 goog.style.setPosition(wonlot[i],220,wonlot[i].y);
                 tmp++;
             }
-            
             queue.play();
-
-            for(var i = currEl+1; i < currEl+boxElNumber; ++i){
-                wonlot[i].isVisible = 0;
-                wonlot[i].style.cssText = 'visibility: hidden;';
-            }
-            currEl = currEl-boxElNumber +1;
+            autoService.bids.changeProperty(wonlot,totalCurNumber+1,/*totalCurNumber+currEl+1*/totalCurNumber+boxElNumber,0);   
         }
-    }     
+    }  
+    
 
+}
+
+autoService.bids.changeProperty = function(array,start,end,isVisible){
+    var cssProp = isVisible?'visibility: visible;':'visibility: hidden;'
+    for(var i = start; i < end; ++i){
+        array[i].isVisible = isVisible;
+        array[i].style.cssText = cssProp;
+    }
 }

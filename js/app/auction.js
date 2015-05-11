@@ -15,19 +15,23 @@ goog.require('goog.json');
  * In auction.js described all functions for the auction autos
 */
 
-
-/** @param {function(Element)} buildTableLots  */
+/**
+ * buildTableLots is a wrapper function for getting a json by an url
+ * @param  {string} url       
+ * @param  {?string} brandName optional
+ */
 autoService.auction.buildTableLots = function(url, brandName){
     goog.net.XhrIo.send(url, function(e) {
         var xhr = /** @type {goog.net.XhrIo} */ (e.target);
         var jsonobj = xhr.getResponseJson();
-        //var jsonobj2 = goog.json.parse(jsonobj);
-        //var zu = JSON.parse(jsonobj);
         autoService.auction.listOfLots(jsonobj,brandName);
         
     });
 };
 
+/**
+ * @return {Element} header for 'Auction' table
+ */
 autoService.auction.tableHeader = function(){
     var tableHeader = 
         goog.dom.createDom('table',"table table-bordered table-hover",
@@ -45,12 +49,13 @@ autoService.auction.tableHeader = function(){
     );
     return tableHeader;
 }
-/**
- * Renders table of lots
- * @param  {Object} jsonobj0  parsed json
- * @param  {string=} brandName optionan name of car brand
- */
 
+/**
+ * Returns table of lots DOM element
+ * @param  {Object} jsonobj0  parsed json
+ * @param  {string=} brandName optional name of car brand
+ * @return {Element} 
+ */
 autoService.auction.tableBody = function(jsonobj0, pageId){
     var tbody = goog.dom.createDom('tbody',undefined);
     var jsonobj = jsonobj0[pageId].models;
@@ -83,7 +88,6 @@ autoService.auction.listOfLots = function(jsonobj0,brandName){
         pageId = brandName;
     var tableContainer = new goog.ui.Container();
     var tableHeader = autoService.auction.tableHeader();
-
     var tbody = autoService.auction.tableBody(jsonobj,pageId);
     
     var loadPageListener = function(e){
@@ -124,6 +128,8 @@ autoService.auction.listOfLots = function(jsonobj0,brandName){
 };
 
 var makeBetListener = function(e) {
+    if(!e) return false;
+    else{
         /** @type {string} */
         var id = e.target.idfield;
         var key = e.target.key;
@@ -144,6 +150,7 @@ var makeBetListener = function(e) {
         var postData = JSON.stringify(jsonobj);
         goog.net.XhrIo.send('/api/auction-auto/all-models.json', callback, 'POST', postData);
         alert(usernameValue + ': ' + betValue);
+    }
 }
 
 /** @param {function(Event)}  showInfoListener */

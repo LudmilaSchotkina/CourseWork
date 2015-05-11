@@ -43,51 +43,38 @@ autoService.common.buildTableCars = function(url){
  */
 autoService.common.listOfCars = function(jsonobj){
     /** @type {goog.ui.Container} container for table 'Auction'*/
-    var tableContainer = new goog.ui.Container();
-    var tableHeader = new goog.ui.Control(
-        goog.dom.createDom('table',"table table-bordered table-hover",
-            goog.dom.createDom('thead',undefined,
-                goog.dom.createDom('tr',undefined,
-                    goog.dom.createDom('th',undefined, "Car brand"),
-                    goog.dom.createDom('th',undefined, "Available")
-                    )
-            )
-        )
-    );
+    var listComponent = new goog.ui.Component();
     goog.style.setStyle(goog.dom.getElement('car-list'),"cursor", "default");
-    
 
-    var tbody = goog.dom.createDom('tbody',undefined);
     var listener = function(e) {
-        location.href = "#/auction/"+e.target.idlink;
-       //alert(location.href);
+        //window.history.replaceState("", "Title", "#/auction/"+e.target.idlink);
+        document.title = "Auction: " + e.target.idlink;
+        var carAuctionTable = goog.dom.getElement('car-auction');
+        //carAuctionTable.dispose();
+        goog.dom.removeChildren(carAuctionTable);
+        autoService.auction.buildTableLots("/api/auction-auto/"+ e.target.idlink +".json"/*, e.target.idlink*/)
     };
+    var linkAll = goog.dom.createDom('a',undefined, "All")
+    linkAll.idlink = 'all-models';    
+    goog.events.listen(linkAll, goog.events.EventType.CLICK, listener);
+    listComponent.addChild(new goog.ui.Control(goog.dom.createDom('div','car-list-item', linkAll)),true);
 
-    var allLink = goog.dom.createDom('a',undefined, "All");
-    var tr = goog.dom.createDom('tr',undefined,
-                goog.dom.createDom('td',undefined,allLink),
-                goog.dom.createDom('td',undefined)
-        );
-    
-    allLink.idlink = 'all';
-    goog.events.listen(allLink, goog.events.EventType.CLICK, listener);
-    goog.dom.appendChild(tbody,tr);
     for(var i in jsonobj){
-        //var btn = goog.dom.createDom('button',{'type':'submit'}, "Learn more..");
-        var brandLink = goog.dom.createDom('a',undefined, jsonobj[i].car_brand);
-        brandLink.idlink = jsonobj[i].car_brand.toLowerCase();
-        tr = goog.dom.createDom('tr',undefined,
-                goog.dom.createDom('td',undefined,brandLink),
-                goog.dom.createDom('td',undefined,jsonobj[i].amount)
+        var brandLink;
+        if(jsonobj[i].modelsAuction.amount==0)
+            brandLink = goog.dom.createDom('a','inactive', jsonobj[i].carBrand);
+        else {
+            brandLink = goog.dom.createDom('a', undefined, jsonobj[i].carBrand);
+            goog.events.listen(brandLink, goog.events.EventType.CLICK, listener);
+        }
+
+        brandLink.idlink = jsonobj[i].carBrand.toLowerCase();
+        divEl = goog.dom.createDom('div','car-list-item',brandLink,
+            goog.dom.createDom('span',undefined,jsonobj[i].modelsAuction.amount)
         );
-        goog.dom.appendChild(tbody,tr);
-        goog.events.listen(brandLink, goog.events.EventType.CLICK, listener);
+        listComponent.addChild(new goog.ui.Control(divEl),true);
     }
-   
-    var ttbody = new goog.ui.Control(tbody);
-    tableHeader.addChild(ttbody,true);
-    tableContainer.addChild(tableHeader,true);
-    tableContainer.render(goog.dom.getElement('car-list'));
+    listComponent.render(goog.dom.getElement('car-list'));
 };
 
 /**
@@ -95,32 +82,18 @@ autoService.common.listOfCars = function(jsonobj){
  * @param {function()}  buildMenu
  */
 autoService.common.buildMenu = function() {
-    var menubar = new goog.ui.Component();//goog.ui.menuBar.create();
+    var menubar = new goog.ui.Component();
     var menuNames = ["Home","Auction","Catalog","Body parts", "Engines", "Wheels & tires"];
-    var links = ["#/","#/auction/all","#/catalog","#/catalog/body-parts","#/catalog/engines","#/catalog/wheels-tires"];
-    var menuOptions = [];
-
-    var prev;
-    var listener = function(e) {
-        var el = goog.dom.getElement(e.target.id);
-        goog.style.setStyle(el, "background", "rgba(16, 22, 45, 0.37)");  
-        if(prev!=null)
-            goog.style.setStyle(prev, "background", "rgb(0,73,105)"); 
-        prev=el;
-    };
+    var links = ["#/","#/auction/all-models","#/catalog","#/catalog/body-parts","#/catalog/engines","#/catalog/wheels-tires"];
 
     for (i in menuNames) {
         var dom = goog.dom.createDom('a',{'href':links[i],'class':'menu-item'}, menuNames[i]);
-       dom.id='menu-item-'+i;
+        dom.id='menu-item-'+i;
         var link = new goog.ui.Control(dom);
         link.idlink = links[i];
         menubar.addChild(link, true);
-        dom.st='0';
-        goog.events.listen(dom, goog.events.EventType.CLICK,listener);
-        link.render(goog.dom.getElement('menu-bar'));
     }
-    //menubar.render(goog.dom.getElement('menu-bar'));
-
+    menubar.render(goog.dom.getElement('menu-bar'));
 };
 
 /** 
@@ -131,3 +104,38 @@ autoService.common.buildCarousel = function() {
     var carousel = new gweb.ui.SlidingCarousel(false /* renderNavButtons*/);
     carousel.decorate(goog.dom.getElement('photography-carousel'),undefined, undefined, 3000);
 };
+
+
+function hashHandler(){
+    this.oldHash = window.location.hash;
+    var that = this;
+    var detect = function(){
+        if(that.oldHash!=window.location.hash){
+            var itemIdOld = regExpCheck(that.oldHash);
+            that.oldHash = window.location.hash;
+            var itemIdNew = regExpCheck(window.location.hash);
+            goog.style.setStyle(goog.dom.getElement(itemIdOld), "background","rgb(0,73,105)");
+            goog.style.setStyle(goog.dom.getElement(itemIdNew), "background","rgba(16, 22, 45, 0.37)");  
+        }
+    };
+    this.Check = setInterval(function(){ detect() }, 100);
+}
+function regExpCheck(str){
+    var itemId;
+    if(/^#\/$/i.test(str))
+        itemId = "menu-item-0";
+    else if(/(#\/auction).*/i.test(str))
+        itemId = "menu-item-1";
+    //else if(/(#\/catalog)(\/)?\b(?!body-parts\b)\b(?!engines\b)\b(?!wheels-tires\b)/i.test(str)){
+    else if(/^#\/catalog$/i.test(str) || /(#\/catalog\/spares).*/i.test(str))
+        itemId = "menu-item-2";
+    else if(/(#\/catalog\/body-parts).*/i.test(str))
+        itemId = "menu-item-3";
+    else if(/(#\/catalog\/engines).*/i.test(str))
+        itemId = "menu-item-4";
+    else if(/(#\/catalog\/wheels-tires).*/i.test(str))
+        itemId = "menu-item-5";
+
+    return itemId;
+}
+var hashDetection = new hashHandler();

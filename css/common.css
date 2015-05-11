@@ -21,7 +21,8 @@ body{
     //background-color: #bdc3c7;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 14px;
-    background: url('/images/background.png') repeat #262626;
+    //background: url('/images/pattern3.jpg') ;//repeat #262626;
+    background: #ECEDF2;
     -webkit-touch-callout: text;
     -webkit-user-select: text;
     -khtml-user-select: text;
@@ -174,7 +175,8 @@ table {
     float: left;
     width: 900px;
     margin: 0px auto;
-    background-image: url("../images/bg-light.png");
+    //background-image: url("/images/bg-light.png");
+    background: #FFF;
     min-height:100%;
     padding-bottom: 20px;
     
@@ -249,6 +251,28 @@ form{
 }
 
 
+
+.car-list-item {
+  padding: 10px 10px;
+  width: 200px;
+  float: left;
+  border-bottom: 1px solid #AECBD7;
+}
+.car-list-item:hover {
+  background: #A3D8F0;
+  background: rgba(75, 172, 207, 0.2);
+}
+.car-list-item > span {
+  float: right;
+}
+.inactive {
+  color: gray;
+  text-decoration: none;
+}
+.inactive:hover {
+  color: gray;
+  text-decoration: none;
+}
 
 
 
@@ -348,4 +372,3 @@ form{
   user-select: text;
   border: none;
 }
-

@@ -2,7 +2,7 @@
 	{
 		"queryType": "currentAuctionsByModel",
 		"apiVersion": "1.0",
-		"page": {"current": "1", "total": "6"},
+		"page": {"current": "1", "total": "2"},
 		"params": {
 		     "sort": "alphabetically",
 		     "groupBy": "model"
@@ -89,7 +89,7 @@
 	{
 		"queryType": "currentAuctionsByModel",
 		"apiVersion": "1.0",
-		"page": {"current": "1", "total": "6"},
+		"page": {"current": "1", "total": "2"},
 		"params": {
 		     "sort": "aphabeticaly",
 		     "groupBy": "model"
@@ -179,14 +179,14 @@
 	{
 		"queryType": "currentAuctionsByModel",
 		"apiVersion": "1.0",
-		"page": {"current": "1", "total": "6"},
+		"page": {"current": "1", "total": "2"},
 		"params": {
 		     "sort": "aphabeticaly",
 		     "groupBy": "model"
 		},
 		"models": [
 			{
-				"carBrand": "audi",
+				"carBrand": "bmw",
 			    "model": "6",
 			    "lot":"B231T",
 			    "price": "2333",
@@ -224,7 +224,7 @@
 			    }
 			},
 			{
-				"carBrand": "audi",
+				"carBrand": "bmw",
 				"model": "3",
 				"lot":"B422X",
 				"price": "8000",
@@ -265,14 +265,14 @@
 	{
 		"queryType": "currentAuctionsByModel",
 		"apiVersion": "1.0",
-		"page": {"current": "2", "total": "6"},
+		"page": {"current": "2", "total": "2"},
 		"params": {
 		     "sort": "aphabeticaly",
 		     "groupBy": "model"
 		},
 		"models": [
 			{
-				"carBrand": "audi",
+				"carBrand": "bmw",
 			    "model": "3",
 			    "lot": "B438C",
 			    "price": "77000",
@@ -309,7 +309,7 @@
 			    }
 			},
 			{
-				"carBrand": "audi",
+				"carBrand": "bmw",
 				"model": "6",
 				"lot": "B231T",
 				"price": "2333",

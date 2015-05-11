@@ -13,7 +13,7 @@ goog.require('goog.ui.Control');
 goog.require('goog.style');
 goog.require('goog.ui.Dialog');
 //goog.provide('example');
-goog.require('autoService.templates');
+//goog.require('autoService.templates');
 
 
 /** @param {function(Element)} listOfModelsForParts  */

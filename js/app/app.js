@@ -11,7 +11,7 @@ auctionApp.config(['$routeProvider', '$locationProvider',
         templateUrl: '/partials/main.html',
         controller: 'MainPageCtrl'
       }).
-      when('/auction/all', {
+      when('/auction/all-models', {
         templateUrl: '/partials/auction/auction.html',
         controller: 'AuctionCtrl'
       }).
@@ -94,6 +94,11 @@ auctionApp.config(['$routeProvider', '$locationProvider',
       when('/about', {
         templateUrl: '/partials/about.html',
         controller: 'RegCtrl'
+      }).
+
+      when('/auction-test', {
+        templateUrl: '/partials/auction_test.html',
+        controller: 'TestCtrl'
       }).
       
       otherwise({

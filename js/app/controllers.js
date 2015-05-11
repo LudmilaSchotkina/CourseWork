@@ -14,12 +14,12 @@ auctionAppCtrls.controller('MainPageCtrl', ['$scope', '$http',
 auctionAppCtrls.controller('AuctionCtrl', ['$scope', 'AvailableAutosAuction', 'AllModelsAuction',
   function ($scope, AvailableAutosAuction, AllModelsAuction) {
     AllModelsAuction.query(function(data){
-      //autoService.common.buildTableCars('/api/auction-auto/all-autos.json');
       autoService.auction.buildTableLots('/api/auction-auto/all-models.json');
     });
     AvailableAutosAuction.query(function(data){
       autoService.common.buildTableCars('/api/auction-auto/all-autos.json');
     });
+    //autoService.common.buildTableCars('/api/auction-auto/all-models');
 }]);
 
 auctionAppCtrls.controller('CarBrandAuctionCtrl', ['$scope','$routeParams', 'CarBrand',
@@ -28,7 +28,7 @@ auctionAppCtrls.controller('CarBrandAuctionCtrl', ['$scope','$routeParams', 'Car
     function(data) {
       autoService.common.buildTableCars("/api/auction-auto/all-autos.json");
       //autoService.auction.buildTableLots('/api/auction-auto/'+ $routeParams.carBrandId +'.json',$routeParams.carBrandId);
-      autoService.auction.listOfLots(data);
+      autoService.auction.listOfLots(data,$routeParams.carBrandId);
     });
   }
 ]);
@@ -150,4 +150,10 @@ auctionAppCtrls.controller('PartTypeModelCtrl', ['$scope','$routeParams', 'Catal
           $routeParams.modelId + ".json");
       });
     }
+]);
+
+auctionAppCtrls.controller('TestCtrl', ['$scope', 'Lot',
+  function ($scope, Lot) {
+   
+  }
 ]);
